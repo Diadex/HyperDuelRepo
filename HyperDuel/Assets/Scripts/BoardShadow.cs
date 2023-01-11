@@ -9,7 +9,8 @@ public class BoardShadow : Board
     public Pebble[] waitPebbles;
     public Piece[] pieces;
     private float timeRemaining = 1;
-    private float hopWaitTime = 0.2f;
+    public float hopWaitTime = 0.1f;
+    private float hopWaitCounter = 0.1f;
     public float hopDurationTime = 0.7f;
     private float hopDurationCounter = 0f;
     public float hopUpwardsAmount = 0.1f;
@@ -18,6 +19,10 @@ public class BoardShadow : Board
     private AnimationCurve hopCurve1;
     [SerializeField]
     private AnimationCurve hopCurve2;
+    [SerializeField]
+    private AnimationCurve hopCurve3;
+    [SerializeField]
+    private AnimationCurve hopCurve4;
 
 
     public bool Counter( ref float f) {
@@ -71,21 +76,25 @@ public class BoardShadow : Board
         float percentageHop = hopDurationCounter * piece.pieceMoveSpeed / hopDurationTime;
         //percentageHop = percentageHop * piece.pieceMoveSpeed;
         if ( percentageHop <= 0.5f) {
-            piece.self.transform.position = Vector3.Lerp( startPebbleLoc, halfway + new Vector3(0, hopUpwardsAmount, 0), hopCurve1.Evaluate(percentageHop*2));
+            Vector3 vec1 = Vector3.Lerp( startPebbleLoc, halfway, hopCurve1.Evaluate(percentageHop*2));
+            Vector3 vec2 = Vector3.Lerp( startPebbleLoc, startPebbleLoc + new Vector3(0, hopUpwardsAmount, 0), hopCurve3.Evaluate(percentageHop*2));
+            piece.self.transform.position = vec1 + vec2 - startPebbleLoc;
             return false;
         }
         else if( (piece.self.transform.position - endPebbleLoc).magnitude >= 0.01) {
             //piece.self.transform.position = Vector3.SmoothDamp( piece.self.transform.position, targetLocation, ref smoothDampCurrentVelocity, piece.pieceMoveSpeed * Time.deltaTime);
-            piece.self.transform.position = Vector3.Lerp( halfway + new Vector3(0, hopUpwardsAmount, 0), endPebbleLoc, hopCurve2.Evaluate( (percentageHop - 0.5f) * 2));
+            Vector3 vec3 = Vector3.Lerp( halfway, endPebbleLoc, hopCurve2.Evaluate((percentageHop - 0.5f) * 2));
+            Vector3 vec4 = Vector3.Lerp( halfway + new Vector3(0, hopUpwardsAmount, 0), halfway, hopCurve4.Evaluate( (percentageHop - 0.5f) * 2));
+            piece.self.transform.position = vec3 + vec4 - halfway;
 
             return false;
         }
-        else if ( !Counter( ref hopWaitTime)) {
+        else if ( !Counter( ref hopWaitCounter)) {
             piece.self.transform.position = endPebbleLoc;
             return false;
         }
         else {
-            hopWaitTime = 0.2f;
+            hopWaitCounter = hopWaitTime;
             hopDurationCounter = 0f;
             return true;
         }
