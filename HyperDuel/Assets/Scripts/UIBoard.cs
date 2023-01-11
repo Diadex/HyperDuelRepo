@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class UIBoard : MonoBehaviour
 {
+    public BoardShadow boardS;
     // Start is called before the first frame update
     void Start()
     {
-        // test
+        boardS = new BoardShadow();
     }
 
     // Update is called once per frame

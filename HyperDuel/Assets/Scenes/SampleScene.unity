@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 146636601}
   - component: {fileID: 146636600}
   - component: {fileID: 146636599}
+  - component: {fileID: 146636602}
   m_Layer: 0
   m_Name: Pebble 26
   m_TagString: Untagged
@@ -220,6 +221,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146636597}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &146636602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146636597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 965853246}
+  - {fileID: 512340337}
 --- !u!1 &188420804
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +347,7 @@ GameObject:
   - component: {fileID: 213115541}
   - component: {fileID: 213115540}
   - component: {fileID: 213115539}
+  - component: {fileID: 213115542}
   m_Layer: 0
   m_Name: Pebble 20
   m_TagString: Untagged
@@ -414,6 +433,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213115537}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &213115542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213115537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 375514235}
+  - {fileID: 721098899}
+  - {fileID: 1833612124}
 --- !u!1 &289858828
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +463,7 @@ GameObject:
   - component: {fileID: 289858832}
   - component: {fileID: 289858831}
   - component: {fileID: 289858830}
+  - component: {fileID: 289858833}
   m_Layer: 0
   m_Name: Pebble 23
   m_TagString: Untagged
@@ -511,6 +549,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289858828}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &289858833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289858828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 652311014}
+  - {fileID: 1918989515}
 --- !u!1 &325489813
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +578,7 @@ GameObject:
   - component: {fileID: 325489817}
   - component: {fileID: 325489816}
   - component: {fileID: 325489815}
+  - component: {fileID: 325489818}
   m_Layer: 0
   m_Name: Pebble 2
   m_TagString: Untagged
@@ -608,6 +664,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325489813}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &325489818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325489813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 325489813}
+  PebblesLinked:
+  - {fileID: 1493086398}
+  - {fileID: 1956529960}
 --- !u!1 &327836248
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 367243187}
+  - component: {fileID: 367243188}
   m_Layer: 0
   m_Name: BoardShadow
   m_TagString: Untagged
@@ -739,6 +813,49 @@ Transform:
   m_Father: {fileID: 961201268}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &367243188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367243186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5555fcf7c23fc74c84c0e377e675113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardPlacement:
+  - {fileID: 1956529960}
+  - {fileID: 325489818}
+  - {fileID: 1493086398}
+  - {fileID: 2053733888}
+  - {fileID: 954986137}
+  - {fileID: 1744143572}
+  - {fileID: 1460582269}
+  - {fileID: 1239508011}
+  - {fileID: 385427223}
+  - {fileID: 1658475049}
+  - {fileID: 1173054286}
+  - {fileID: 1546678002}
+  - {fileID: 1575302728}
+  - {fileID: 1772738564}
+  - {fileID: 375514235}
+  - {fileID: 1680650010}
+  - {fileID: 2006481954}
+  - {fileID: 1397067352}
+  - {fileID: 721098899}
+  - {fileID: 213115542}
+  - {fileID: 565225788}
+  - {fileID: 1918989515}
+  - {fileID: 289858833}
+  - {fileID: 652311014}
+  - {fileID: 512340337}
+  - {fileID: 146636602}
+  - {fileID: 965853246}
+  - {fileID: 1833612124}
+  pieces:
+  - {fileID: 1160342259}
 --- !u!1 &375514230
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +868,7 @@ GameObject:
   - component: {fileID: 375514234}
   - component: {fileID: 375514233}
   - component: {fileID: 375514232}
+  - component: {fileID: 375514235}
   m_Layer: 0
   m_Name: Pebble 15
   m_TagString: Untagged
@@ -836,6 +954,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375514230}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &375514235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375514230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1173054286}
+  - {fileID: 213115542}
 --- !u!1 &385427218
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +983,7 @@ GameObject:
   - component: {fileID: 385427222}
   - component: {fileID: 385427221}
   - component: {fileID: 385427220}
+  - component: {fileID: 385427223}
   m_Layer: 0
   m_Name: Pebble 9
   m_TagString: Untagged
@@ -933,6 +1069,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385427218}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &385427223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385427218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1956529960}
+  - {fileID: 1658475049}
+  - {fileID: 1772738564}
 --- !u!1 &512340332
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +1099,7 @@ GameObject:
   - component: {fileID: 512340336}
   - component: {fileID: 512340335}
   - component: {fileID: 512340334}
+  - component: {fileID: 512340337}
   m_Layer: 0
   m_Name: GoalA 25
   m_TagString: Untagged
@@ -1030,6 +1185,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512340332}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &512340337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512340332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 146636602}
+  - {fileID: 652311014}
 --- !u!1 &565225783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1214,7 @@ GameObject:
   - component: {fileID: 565225787}
   - component: {fileID: 565225786}
   - component: {fileID: 565225785}
+  - component: {fileID: 565225788}
   m_Layer: 0
   m_Name: Pebble 21
   m_TagString: Untagged
@@ -1127,6 +1300,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565225783}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &565225788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565225783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1833612124}
+  - {fileID: 1680650010}
 --- !u!1 &652311009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1329,7 @@ GameObject:
   - component: {fileID: 652311013}
   - component: {fileID: 652311012}
   - component: {fileID: 652311011}
+  - component: {fileID: 652311014}
   m_Layer: 0
   m_Name: Pebble 24
   m_TagString: Untagged
@@ -1224,6 +1415,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652311009}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &652311014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652311009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 512340337}
+  - {fileID: 289858833}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1538,7 @@ GameObject:
   - component: {fileID: 721098898}
   - component: {fileID: 721098897}
   - component: {fileID: 721098896}
+  - component: {fileID: 721098899}
   m_Layer: 0
   m_Name: Pebble 19
   m_TagString: Untagged
@@ -1415,6 +1624,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721098894}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &721098899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721098894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 213115542}
+  - {fileID: 1397067352}
 --- !u!1 &954986132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1653,7 @@ GameObject:
   - component: {fileID: 954986136}
   - component: {fileID: 954986135}
   - component: {fileID: 954986134}
+  - component: {fileID: 954986137}
   m_Layer: 0
   m_Name: Pebble 5
   m_TagString: Untagged
@@ -1512,6 +1739,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954986132}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &954986137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954986132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1744143572}
+  - {fileID: 2053733888}
 --- !u!1 &961201267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,6 +1765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961201268}
+  - component: {fileID: 961201269}
   m_Layer: 0
   m_Name: UIBoard
   m_TagString: Untagged
@@ -1544,6 +1789,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &961201269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961201267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b325989f860219746a404fb80a9aa7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardS: {fileID: 367243188}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,6 +1898,7 @@ GameObject:
   - component: {fileID: 965853245}
   - component: {fileID: 965853244}
   - component: {fileID: 965853243}
+  - component: {fileID: 965853246}
   m_Layer: 0
   m_Name: Pebble 27
   m_TagString: Untagged
@@ -1725,6 +1984,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965853241}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &965853246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965853241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1833612124}
+  - {fileID: 146636602}
 --- !u!1 &1047653771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,6 +2207,7 @@ GameObject:
   - component: {fileID: 1160342257}
   - component: {fileID: 1160342256}
   - component: {fileID: 1160342255}
+  - component: {fileID: 1160342259}
   m_Layer: 0
   m_Name: BoardPiece
   m_TagString: Untagged
@@ -2016,6 +2293,21 @@ Transform:
   m_Father: {fileID: 367243187}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1160342259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160342254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350ac355b07763b4a89cd4606b7e7722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 1160342254}
+  movementStat: 1
+  attackStat: 0
 --- !u!1 &1173054281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +2320,7 @@ GameObject:
   - component: {fileID: 1173054285}
   - component: {fileID: 1173054284}
   - component: {fileID: 1173054283}
+  - component: {fileID: 1173054286}
   m_Layer: 0
   m_Name: Pebble 11
   m_TagString: Untagged
@@ -2113,6 +2406,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173054281}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1173054286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173054281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1658475049}
+  - {fileID: 1460582269}
+  - {fileID: 375514235}
 --- !u!1 &1235193044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,6 +2533,7 @@ GameObject:
   - component: {fileID: 1239508010}
   - component: {fileID: 1239508009}
   - component: {fileID: 1239508008}
+  - component: {fileID: 1239508011}
   m_Layer: 0
   m_Name: Pebble 8
   m_TagString: Untagged
@@ -2307,6 +2619,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239508006}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1239508011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239508006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1956529960}
+  - {fileID: 1575302728}
 --- !u!1 &1394653091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2387,6 +2716,7 @@ GameObject:
   - component: {fileID: 1397067351}
   - component: {fileID: 1397067350}
   - component: {fileID: 1397067349}
+  - component: {fileID: 1397067352}
   m_Layer: 0
   m_Name: Pebble 18
   m_TagString: Untagged
@@ -2472,6 +2802,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397067347}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1397067352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397067347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1772738564}
+  - {fileID: 721098899}
+  - {fileID: 1918989515}
 --- !u!1 &1460582264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,6 +2832,7 @@ GameObject:
   - component: {fileID: 1460582268}
   - component: {fileID: 1460582267}
   - component: {fileID: 1460582266}
+  - component: {fileID: 1460582269}
   m_Layer: 0
   m_Name: Gate2B 7
   m_TagString: Untagged
@@ -2569,6 +2918,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460582264}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1460582269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460582264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1546678002}
+  - {fileID: 1744143572}
+  - {fileID: 1173054286}
 --- !u!1 &1492491981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +3045,7 @@ GameObject:
   - component: {fileID: 1493086397}
   - component: {fileID: 1493086396}
   - component: {fileID: 1493086395}
+  - component: {fileID: 1493086398}
   m_Layer: 0
   m_Name: Pebble 3
   m_TagString: Untagged
@@ -2763,6 +3131,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493086393}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1493086398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493086393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 325489818}
+  - {fileID: 2053733888}
 --- !u!1 &1546677997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2775,6 +3160,7 @@ GameObject:
   - component: {fileID: 1546678001}
   - component: {fileID: 1546678000}
   - component: {fileID: 1546677999}
+  - component: {fileID: 1546678002}
   m_Layer: 0
   m_Name: Pebble 12
   m_TagString: Untagged
@@ -2860,6 +3246,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546677997}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1546678002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546677997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1460582269}
+  - {fileID: 1680650010}
 --- !u!1 &1575302723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +3275,7 @@ GameObject:
   - component: {fileID: 1575302727}
   - component: {fileID: 1575302726}
   - component: {fileID: 1575302725}
+  - component: {fileID: 1575302728}
   m_Layer: 0
   m_Name: Pebble 13
   m_TagString: Untagged
@@ -2957,6 +3361,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575302723}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1575302728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575302723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 2006481954}
+  - {fileID: 1239508011}
 --- !u!1 &1576020854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,6 +3584,7 @@ GameObject:
   - component: {fileID: 1658475048}
   - component: {fileID: 1658475047}
   - component: {fileID: 1658475046}
+  - component: {fileID: 1658475049}
   m_Layer: 0
   m_Name: Pebble 10
   m_TagString: Untagged
@@ -3248,6 +3670,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658475044}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1658475049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658475044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 385427223}
+  - {fileID: 1173054286}
 --- !u!1 &1680650005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3699,7 @@ GameObject:
   - component: {fileID: 1680650009}
   - component: {fileID: 1680650008}
   - component: {fileID: 1680650007}
+  - component: {fileID: 1680650010}
   m_Layer: 0
   m_Name: Pebble 16
   m_TagString: Untagged
@@ -3345,6 +3785,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680650005}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1680650010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680650005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1546678002}
+  - {fileID: 565225788}
 --- !u!1 &1744143567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,6 +3814,7 @@ GameObject:
   - component: {fileID: 1744143571}
   - component: {fileID: 1744143570}
   - component: {fileID: 1744143569}
+  - component: {fileID: 1744143572}
   m_Layer: 0
   m_Name: Pebble 6
   m_TagString: Untagged
@@ -3442,6 +3900,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744143567}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1744143572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744143567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 954986137}
+  - {fileID: 1460582269}
 --- !u!1 &1764247238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,6 +4026,7 @@ GameObject:
   - component: {fileID: 1772738563}
   - component: {fileID: 1772738562}
   - component: {fileID: 1772738561}
+  - component: {fileID: 1772738564}
   m_Layer: 0
   m_Name: Pebble 14
   m_TagString: Untagged
@@ -3636,6 +4112,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772738559}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1772738564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772738559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 385427223}
+  - {fileID: 1397067352}
 --- !u!1 &1829725619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3745,6 +4238,7 @@ GameObject:
   - component: {fileID: 1833612123}
   - component: {fileID: 1833612122}
   - component: {fileID: 1833612121}
+  - component: {fileID: 1833612124}
   m_Layer: 0
   m_Name: Gate2A 28
   m_TagString: Untagged
@@ -3830,6 +4324,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833612119}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1833612124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833612119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 565225788}
+  - {fileID: 965853246}
+  - {fileID: 213115542}
 --- !u!1 &1918989510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3842,6 +4354,7 @@ GameObject:
   - component: {fileID: 1918989514}
   - component: {fileID: 1918989513}
   - component: {fileID: 1918989512}
+  - component: {fileID: 1918989515}
   m_Layer: 0
   m_Name: Gate1A 22
   m_TagString: Untagged
@@ -3927,6 +4440,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918989510}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1918989515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918989510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 289858833}
+  - {fileID: 1397067352}
+  - {fileID: 2006481954}
 --- !u!1 &1956529955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,6 +4470,7 @@ GameObject:
   - component: {fileID: 1956529959}
   - component: {fileID: 1956529958}
   - component: {fileID: 1956529957}
+  - component: {fileID: 1956529960}
   m_Layer: 0
   m_Name: Gate1B 1
   m_TagString: Untagged
@@ -4024,6 +4556,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956529955}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1956529960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956529955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 325489818}
+  - {fileID: 1239508011}
+  - {fileID: 385427223}
 --- !u!1 &1992641822
 GameObject:
   m_ObjectHideFlags: 0
@@ -4133,6 +4683,7 @@ GameObject:
   - component: {fileID: 2006481953}
   - component: {fileID: 2006481952}
   - component: {fileID: 2006481951}
+  - component: {fileID: 2006481954}
   m_Layer: 0
   m_Name: Pebble 17
   m_TagString: Untagged
@@ -4218,6 +4769,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2006481949}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2006481954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006481949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1918989515}
+  - {fileID: 1575302728}
 --- !u!1 &2053733883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,6 +4798,7 @@ GameObject:
   - component: {fileID: 2053733887}
   - component: {fileID: 2053733886}
   - component: {fileID: 2053733885}
+  - component: {fileID: 2053733888}
   m_Layer: 0
   m_Name: GoalB 4
   m_TagString: Untagged
@@ -4315,3 +4884,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053733883}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2053733888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053733883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piece: {fileID: 0}
+  self: {fileID: 0}
+  PebblesLinked:
+  - {fileID: 1493086398}
+  - {fileID: 954986137}
