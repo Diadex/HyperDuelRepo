@@ -1054,28 +1054,37 @@ MonoBehaviour:
   pieces:
   - {fileID: 1160342259}
   hopWaitTime: 0.03
-  hopDurationTime: 0.3
-  hopUpwardsAmount: 0.6
+  hopDurationTime: 0.2
+  hopUpwardsAmount: 0.3
   hopCurve1:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      time: 0.0041669216
+      value: -0.004716981
+      inSlope: 0.43126747
+      outSlope: 0.43126747
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.20099764
+    - serializedVersion: 3
+      time: 0.8748226
+      value: 0.7497484
+      inSlope: 1.4328622
+      outSlope: 1.4328622
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2.9559736
+      outSlope: 2.9559736
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.2899269
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1086,20 +1095,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2.0029027
+      outSlope: 2.0029027
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.100086175
+    - serializedVersion: 3
+      time: 0.5412003
+      value: 0.83831525
+      inSlope: 0.69696236
+      outSlope: 0.69696236
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0.021440875
+      outSlope: 0.021440875
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.55
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
