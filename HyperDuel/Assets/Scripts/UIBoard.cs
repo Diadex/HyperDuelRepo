@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+enum PlayerStatus 
+{
+PieceOrCardSelect,
+PebbleSelect,
+AttackSelect
+}
+
 public class UIBoard : MonoBehaviour
 {
     private Camera mainCamera;
@@ -17,6 +26,7 @@ public class UIBoard : MonoBehaviour
     public BoardShadow boardS; 
     public Piece equipped;
     public Pebble targetPebble;
+
     private void Start()
     {
         gameStats = new GameStats();
@@ -25,13 +35,57 @@ public class UIBoard : MonoBehaviour
         targetPebble = null;
         isWaiting = false;
         ableToMakeMoves = true;
-        //_renderer = GetComponent<Renderer>();
     }
 
     private void Update()
     {
-        
-        if (gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) { // it is your turn
+        /*
+        if clicked
+            raycast stuff
+            if (raycast was for something that can always work, even when the board is moving)
+            if (!animationPlaying && player's turn) // animation is not playing, pieces are clickable.
+                if (a piece is not active)
+                    if (raycast was a piece)
+                        set current piece as that piece
+                        animationPlaying = true;
+                        animtype = 0
+                    // else if a card
+                else if(target pebble is not active)
+                        if (raycast was a piece)
+                            set the current piece as that piece
+                            animationPlaying = true;
+                            animtype = 0
+                        // else if a card
+                        else if (raycast was a pebble)
+                            set the target pebble as that pebble
+                            animationPlaying = true;
+                            animType = 2
+
+                    
+
+        if (animationPlaying && player's turn)
+            if (animType == 0) // we selected a piece, UpwardsJump the piece in place.
+                if (boardS.UpwardsJump(equipped, targetPebble.self.transform.position)) {
+                    animationPlaying = false;
+                    targetPebble = null;
+                }
+            else if (animType == 1) { // we selected a card...
+                
+            }
+            else if ( animType == 2) { // we selected a pebble and moving towards it...
+
+            }
+            else if ( animtype == 3) { // we selected something to attack...
+
+            }
+        */
+    }
+}
+
+
+
+/*
+if (gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) { // it is your turn
             if ( ableToMakeMoves) {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -58,7 +112,7 @@ public class UIBoard : MonoBehaviour
                     }
 
 
-/*
+
                     if (Physics.Raycast(ray, out hit, 1000f, myLayerMask))
                     { // hit is the stuff that got hit
                         //foreach (RaycastHit hit in hits) {
@@ -82,7 +136,7 @@ public class UIBoard : MonoBehaviour
                         //         _renderer.material.color == Color.red ? Color.blue : Color.red;
                         // } 
                     }
-                    //ableToMakeMoves = false;*/
+                    //ableToMakeMoves = false;
                 }
             
             }
@@ -103,4 +157,7 @@ public class UIBoard : MonoBehaviour
         }
         
     }
-}
+    public void JumpPieceWhenClicked(){
+        
+
+    }*/

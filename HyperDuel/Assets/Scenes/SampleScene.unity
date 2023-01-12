@@ -1056,6 +1056,7 @@ MonoBehaviour:
   hopWaitTime: 0.03
   hopDurationTime: 0.2
   hopUpwardsAmount: 0.3
+  inPlaceUpwardsAmount: 1.2
   hopCurve1:
     serializedVersion: 2
     m_Curve:
@@ -2311,7 +2312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b325989f860219746a404fb80a9aa7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStats: {fileID: 0}
+  isWaiting: 0
+  ableToMakeMoves: 1
   boardS: {fileID: 367243188}
+  equipped: {fileID: 0}
+  targetPebble: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,9 +2724,9 @@ GameObject:
   - component: {fileID: 1160342256}
   - component: {fileID: 1160342255}
   - component: {fileID: 1160342259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BoardPiece
-  m_TagString: Untagged
+  m_TagString: PieceHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5724,6 +5730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece: {fileID: 0}
+  piece: {fileID: 1160342259}
   self: {fileID: 2105054279}
   PebblesLinked: []
