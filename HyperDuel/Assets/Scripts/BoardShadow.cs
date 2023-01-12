@@ -48,7 +48,7 @@ public class BoardShadow : Board
     // Update is called once per frame
     void Update()
     {
-        Test();
+        //Test();
     }
 
     private void Test() {
@@ -149,6 +149,12 @@ public class BoardShadow : Board
     }
     public Pebble GetPebbleByPiece(Piece piece) {
         foreach (Pebble pebble in boardPlacement)
+        {
+            if (pebble.piece == piece) {
+                return pebble;
+            }
+        }
+        foreach (Pebble pebble in waitPebbles)
         {
             if (pebble.piece == piece) {
                 return pebble;

@@ -7,53 +7,58 @@ public class UIBoard : MonoBehaviour
     private Camera mainCamera;
 
     //private Renderer _renderer;
-
+    public GameStats gameStats;
     private Ray ray;
     private RaycastHit hit;
-    private int myLayerMask = 1 << 6;
+    //private int myLayerMask = 1 << 6;
     // or: private LayerMask _myLayerMask = 6;
     public bool isWaiting;
-    public bool ableToMakeMoves = true;
+    public bool ableToMakeMoves;
     public BoardShadow boardS; 
     public Piece equipped;
     public Pebble targetPebble;
     private void Start()
     {
+        gameStats = new GameStats();
         equipped = null;
         mainCamera = Camera.main;
+        targetPebble = null;
         isWaiting = false;
+        ableToMakeMoves = true;
         //_renderer = GetComponent<Renderer>();
     }
 
     private void Update()
     {
-        /*
-        if (GameStats.gameTurn % GameStats.totalTurns * 2 < GameStats.totalTurns) { // it is your turn
+        
+        if (gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) { // it is your turn
             if ( ableToMakeMoves) {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    ray = new Ray(
-                        mainCamera.ScreenToWorldPoint(Input.mousePosition),
-                        mainCamera.transform.forward);
-
-                    if (GameStats.gameTurn % GameStats.totalTurns == 0) {
-                        if (Physics.Raycast(ray, out hit, 1000f, myLayerMask)) {
-                            if (  hit.collider.CompareTag("PieceHit")) {
-                                if (equipped == null) {
+                    //ray = new Ray( mainCamera.ScreenToWorldPoint(Input.mousePosition),
+                    //    mainCamera.transform.forward);
+                    ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+                    if (gameStats.gameTurn % gameStats.totalTurns == 0) {
+                        if (equipped == null || targetPebble == null) { // if either are null, keep on checking
+                                    Debug.Log("c");
+                            if (Physics.Raycast(ray, out hit, 1000f)) {
+                                if (  hit.collider.CompareTag("PieceHit")) {
+                                    Debug.Log("a");
                                     equipped = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
-                                }
-                                if ( targetPebble == null) {
                                     targetPebble = boardS.GetPebbleByPiece( equipped);
+                                    ableToMakeMoves = false;
                                 }
-                                boardS.UpwardsJump(equipped, targetPebble.self.transform.position);
+                                // other stuff like picking cards etc.
                             }
                         }
-                        // other stuff like picking cards etc.
+                        else {
+                        }
+                        
                         
                     }
 
 
-
+/*
                     if (Physics.Raycast(ray, out hit, 1000f, myLayerMask))
                     { // hit is the stuff that got hit
                         //foreach (RaycastHit hit in hits) {
@@ -77,15 +82,25 @@ public class UIBoard : MonoBehaviour
                         //         _renderer.material.color == Color.red ? Color.blue : Color.red;
                         // } 
                     }
-                    //ableToMakeMoves = false;
+                    //ableToMakeMoves = false;*/
                 }
             
+            }
+            else if( gameStats.gameTurn % gameStats.totalTurns == 0) { 
+                if (boardS.UpwardsJump(equipped, targetPebble.self.transform.position)) {
+                    targetPebble = null;
+                    gameStats.gameTurn++;
+                }
+            }
+            else {
+                gameStats.gameTurn = 0;
+                ableToMakeMoves = true;
             }
 
         }
         else {
 
         }
-        */
+        
     }
 }
