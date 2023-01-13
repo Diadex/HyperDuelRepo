@@ -13,6 +13,8 @@ AttackSelect
 
 public class UIBoard : MonoBehaviour
 {
+    public bool animationPlaying;
+    public int animType;
     private Camera mainCamera;
 
     //private Renderer _renderer;
@@ -35,50 +37,92 @@ public class UIBoard : MonoBehaviour
         targetPebble = null;
         isWaiting = false;
         ableToMakeMoves = true;
+        animationPlaying = false;
+        animType = 0;
     }
 
     private void Update()
     {
-        /*
-        if clicked
-            raycast stuff
-            if (raycast was for something that can always work, even when the board is moving)
-            if (!animationPlaying && player's turn) // animation is not playing, pieces are clickable.
-                if (a piece is not active)
-                    if (raycast was a piece)
-                        set current piece as that piece
-                        animationPlaying = true;
-                        animtype = 0
-                    // else if a card
-                else if(target pebble is not active)
-                        if (raycast was a piece)
-                            set the current piece as that piece
+        
+        // if clicked
+        if (Input.GetMouseButtonDown(0)) {
+            //     raycast stuff
+            ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 1000f)) {
+                // if (raycast was for something that can always work, even when the board is moving)
+                // if (!animationPlaying && player's turn) // animation is not playing, pieces are clickable.
+                if (!animationPlaying && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
+            //     if (a piece is not active)
+                    if (equipped == null ) {
+            //         if (raycast was a piece)
+            //             set current piece as that piece
+            //             animationPlaying = true;
+            //             animtype = 0
+                        if (  hit.collider.CompareTag("PieceHit")) {
+                            equipped = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
+                            targetPebble = boardS.GetPebbleByPiece( equipped);
                             animationPlaying = true;
-                            animtype = 0
-                        // else if a card
-                        else if (raycast was a pebble)
-                            set the target pebble as that pebble
+                            animType = 0;
+                        }
+            //         // else if a card
+            //     else if(target pebble is not active)
+                    } else if(targetPebble == null) {
+            //             if (raycast was a piece)
+            //                 set the current piece as that piece
+            //                 animationPlaying = true;
+            //                 animtype = 0
+            //             // else if a card
+                        if (  hit.collider.CompareTag("PieceHit")) {
+                            equipped = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
+                            targetPebble = boardS.GetPebbleByPiece( equipped);
                             animationPlaying = true;
-                            animType = 2
+                            animType = 0;
+                        }
+            //             else if (raycast was a pebble)
+            //                 set the target pebble as that pebble
+            //                 animationPlaying = true;
+            //                 animType = 2
+                        else if ( hit.collider.CompareTag("PebbleHit")) {
+                            targetPebble = boardS.GetPebbleByGameObject( hit.collider.gameObject);
+                            Pebble prev = boardS.GetPebbleByPiece( equipped);
+                            prev.piece = null;
+                            animationPlaying = true;
+                            animType = 2;
+                            Debug.Log("a");
+                        }
+                    }
+                }
+            }
+        }    
 
-                    
-
-        if (animationPlaying && player's turn)
-            if (animType == 0) // we selected a piece, UpwardsJump the piece in place.
+        // if (animationPlaying && player's turn)
+        if (animationPlaying && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
+            Debug.Log("k");
+            if (animType == 0) { // we selected a piece, UpwardsJump the piece in place.
                 if (boardS.UpwardsJump(equipped, targetPebble.self.transform.position)) {
+                    targetPebble.piece = equipped;
                     animationPlaying = false;
                     targetPebble = null;
+                            Debug.Log("b");
                 }
+            }
             else if (animType == 1) { // we selected a card...
                 
+                            Debug.Log("d");
             }
             else if ( animType == 2) { // we selected a pebble and moving towards it...
+                boardS.MovePieceTo(equipped, targetPebble);
+                targetPebble.piece = equipped;
+                animationPlaying = false;
+                targetPebble = null;
+                equipped = null;
+                            Debug.Log("c");
+            }
+            else if ( animType == 3) { // we selected something to attack...
+                            Debug.Log("e");
 
             }
-            else if ( animtype == 3) { // we selected something to attack...
-
-            }
-        */
+        }
     }
 }
 
