@@ -383,6 +383,7 @@ MonoBehaviour:
   - {fileID: 965853246}
   - {fileID: 512340337}
   - {fileID: 721098899}
+  isWaitPebble: 0
 --- !u!1 &188420804
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +597,121 @@ MonoBehaviour:
   - {fileID: 375514235}
   - {fileID: 721098899}
   - {fileID: 1833612124}
+  isWaitPebble: 0
+--- !u!1 &238957976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238957977}
+  - component: {fileID: 238957981}
+  - component: {fileID: 238957980}
+  - component: {fileID: 238957979}
+  - component: {fileID: 238957978}
+  m_Layer: 6
+  m_Name: BoardPiece4
+  m_TagString: PieceHit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238957977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238957976}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.52, y: 0.9, z: 2.54}
+  m_LocalScale: {x: 0.6, y: 0.49, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 367243187}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &238957978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238957976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350ac355b07763b4a89cd4606b7e7722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 238957976}
+  movementStat: 1
+  attackStat: 0
+  pieceMoveSpeed: 0.5
+--- !u!65 &238957979
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238957976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &238957980
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238957976}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b80794448030a8849840b546570fccad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &238957981
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238957976}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &265112900
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,11 +822,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece: {fileID: 1160342259}
+  piece: {fileID: 0}
   self: {fileID: 265112900}
   PebblesLinked:
   - {fileID: 1918989515}
   - {fileID: 1833612124}
+  isWaitPebble: 1
 --- !u!1 &289572580
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +1040,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 652311014}
   - {fileID: 1918989515}
+  isWaitPebble: 0
 --- !u!1 &325489813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1156,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1493086398}
   - {fileID: 1956529960}
+  isWaitPebble: 0
 --- !u!1 &327836248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354308999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.52, y: 0.9, z: 0}
+  m_LocalPosition: {x: 5.52, y: 0.9, z: -0.46000004}
   m_LocalScale: {x: 0.6, y: 0.49, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1282,6 +1401,9 @@ Transform:
   - {fileID: 1394653092}
   - {fileID: 1160342258}
   - {fileID: 354309004}
+  - {fileID: 1016950687}
+  - {fileID: 238957977}
+  - {fileID: 1917880239}
   m_Father: {fileID: 961201268}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1340,6 +1462,9 @@ MonoBehaviour:
   pieces:
   - {fileID: 1160342259}
   - {fileID: 354309000}
+  - {fileID: 1016950688}
+  - {fileID: 238957978}
+  - {fileID: 1917880240}
   hopWaitTime: 0.03
   hopDurationTime: 0.2
   hopUpwardsAmount: 0.3
@@ -1575,6 +1700,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1173054286}
   - {fileID: 213115542}
+  isWaitPebble: 0
 --- !u!1 &385427218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1817,7 @@ MonoBehaviour:
   - {fileID: 1956529960}
   - {fileID: 1658475049}
   - {fileID: 1772738564}
+  isWaitPebble: 0
 --- !u!1 &512340332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1933,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 146636602}
   - {fileID: 652311014}
+  isWaitPebble: 0
 --- !u!1 &565225783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +2049,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1833612124}
   - {fileID: 1680650010}
+  isWaitPebble: 0
 --- !u!1 &652311009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2165,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 512340337}
   - {fileID: 289858833}
+  isWaitPebble: 0
 --- !u!1 &685779567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,6 +2472,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 213115542}
   - {fileID: 1397067352}
+  isWaitPebble: 0
 --- !u!1 &769373161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,6 +2685,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1744143572}
   - {fileID: 2053733888}
+  isWaitPebble: 0
 --- !u!1 &961201267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,6 +2939,121 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1833612124}
   - {fileID: 146636602}
+  isWaitPebble: 0
+--- !u!1 &1016950686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016950687}
+  - component: {fileID: 1016950691}
+  - component: {fileID: 1016950690}
+  - component: {fileID: 1016950689}
+  - component: {fileID: 1016950688}
+  m_Layer: 6
+  m_Name: BoardPiece3
+  m_TagString: PieceHit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016950687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016950686}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.52, y: 0.9, z: 1.04}
+  m_LocalScale: {x: 0.6, y: 0.49, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 367243187}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1016950688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016950686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350ac355b07763b4a89cd4606b7e7722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 1016950686}
+  movementStat: 1
+  attackStat: 0
+  pieceMoveSpeed: 0.5
+--- !u!65 &1016950689
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016950686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1016950690
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016950686}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b80794448030a8849840b546570fccad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1016950691
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016950686}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1047653771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,7 +3339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160342254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.52, y: 0.9, z: 0}
+  m_LocalPosition: {x: 5.52, y: 0.9, z: -1.96}
   m_LocalScale: {x: 0.6, y: 0.49, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3231,6 +3478,7 @@ MonoBehaviour:
   - {fileID: 1658475049}
   - {fileID: 1460582269}
   - {fileID: 375514235}
+  isWaitPebble: 0
 --- !u!1 &1235193044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,6 +3691,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1956529960}
   - {fileID: 1575302728}
+  isWaitPebble: 0
 --- !u!1 &1294344170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3553,11 +3802,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece: {fileID: 1160342259}
+  piece: {fileID: 0}
   self: {fileID: 1294344170}
   PebblesLinked:
   - {fileID: 1918989515}
   - {fileID: 1833612124}
+  isWaitPebble: 1
 --- !u!1 &1310006972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3850,6 +4100,7 @@ MonoBehaviour:
   - {fileID: 1772738564}
   - {fileID: 721098899}
   - {fileID: 1918989515}
+  isWaitPebble: 0
 --- !u!1 &1460582264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,6 +4217,7 @@ MonoBehaviour:
   - {fileID: 1546678002}
   - {fileID: 1744143572}
   - {fileID: 1173054286}
+  isWaitPebble: 0
 --- !u!1 &1492491981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,6 +4431,7 @@ MonoBehaviour:
   - {fileID: 325489818}
   - {fileID: 2053733888}
   - {fileID: 1658475049}
+  isWaitPebble: 0
 --- !u!1 &1546677997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,6 +4547,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1460582269}
   - {fileID: 1680650010}
+  isWaitPebble: 0
 --- !u!1 &1575302723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4409,6 +4663,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 2006481954}
   - {fileID: 1239508011}
+  isWaitPebble: 0
 --- !u!1 &1576020854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4718,6 +4973,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 385427223}
   - {fileID: 1173054286}
+  isWaitPebble: 0
 --- !u!1 &1680650005
 GameObject:
   m_ObjectHideFlags: 0
@@ -4833,6 +5089,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1546678002}
   - {fileID: 565225788}
+  isWaitPebble: 0
 --- !u!1 &1744143567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +5205,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 954986137}
   - {fileID: 1460582269}
+  isWaitPebble: 0
 --- !u!1 &1755886929
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,11 +5316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece: {fileID: 1160342259}
+  piece: {fileID: 0}
   self: {fileID: 1755886929}
   PebblesLinked:
   - {fileID: 1918989515}
   - {fileID: 1833612124}
+  isWaitPebble: 1
 --- !u!1 &1764247238
 GameObject:
   m_ObjectHideFlags: 0
@@ -5275,6 +5534,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 385427223}
   - {fileID: 1397067352}
+  isWaitPebble: 0
 --- !u!1 &1782794631
 GameObject:
   m_ObjectHideFlags: 0
@@ -5585,6 +5845,7 @@ MonoBehaviour:
   - {fileID: 565225788}
   - {fileID: 965853246}
   - {fileID: 213115542}
+  isWaitPebble: 0
 --- !u!1 &1899893058
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,11 +5956,126 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece: {fileID: 1160342259}
+  piece: {fileID: 0}
   self: {fileID: 1899893058}
   PebblesLinked:
   - {fileID: 1918989515}
   - {fileID: 1833612124}
+  isWaitPebble: 1
+--- !u!1 &1917880238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1917880239}
+  - component: {fileID: 1917880243}
+  - component: {fileID: 1917880242}
+  - component: {fileID: 1917880241}
+  - component: {fileID: 1917880240}
+  m_Layer: 6
+  m_Name: BoardPiece5
+  m_TagString: PieceHit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1917880239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917880238}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.52, y: 0.9, z: 4.04}
+  m_LocalScale: {x: 0.6, y: 0.49, z: 0.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 367243187}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1917880240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917880238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350ac355b07763b4a89cd4606b7e7722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 1917880238}
+  movementStat: 1
+  attackStat: 0
+  pieceMoveSpeed: 0.5
+--- !u!65 &1917880241
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917880238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1917880242
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917880238}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: b80794448030a8849840b546570fccad, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1917880243
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917880238}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1918989510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,6 +6192,7 @@ MonoBehaviour:
   - {fileID: 289858833}
   - {fileID: 1397067352}
   - {fileID: 2006481954}
+  isWaitPebble: 0
 --- !u!1 &1956529955
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,6 +6309,7 @@ MonoBehaviour:
   - {fileID: 325489818}
   - {fileID: 1239508011}
   - {fileID: 385427223}
+  isWaitPebble: 0
 --- !u!1 &1992641822
 GameObject:
   m_ObjectHideFlags: 0
@@ -6144,6 +6522,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1918989515}
   - {fileID: 1575302728}
+  isWaitPebble: 0
 --- !u!1 &2053733883
 GameObject:
   m_ObjectHideFlags: 0
@@ -6259,6 +6638,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1493086398}
   - {fileID: 954986137}
+  isWaitPebble: 0
 --- !u!1 &2105054279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,8 +6749,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a4324f0d92f4b4da6fb96bcba90bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piece: {fileID: 1160342259}
+  piece: {fileID: 0}
   self: {fileID: 2105054279}
   PebblesLinked:
   - {fileID: 1918989515}
   - {fileID: 1833612124}
+  isWaitPebble: 1

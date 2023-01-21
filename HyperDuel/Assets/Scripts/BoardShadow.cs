@@ -42,7 +42,7 @@ public class BoardShadow : Board
     int nextIndex = 0;
     void Start() {
         tempPebble = boardPlacement[0];
-        for (int i = 0; i < pieces.Length; i++)
+        for (int i = 0; i < pieces.Length && i < waitPebbles.Length; i++)
         {
             waitPebbles[i].putPiece(pieces[i]);
             waitPebbles[i].piece.self.transform.position = waitPebbles[i].self.transform.position + new Vector3(0, 0.5f, 0);
@@ -268,7 +268,7 @@ private bool BFS(List<List<int>> adj,
     for (int i = 0;
              i < adj[u].Count; i++)
     {
-      if (visited[adj[u][i]] == false && boardPlacement[adj[u][i]].piece == null)
+      if (visited[adj[u][i]] == false && boardPlacement[adj[u][i]].piece == null && !boardPlacement[adj[u][i]].isWaitPebble)
       {
         visited[adj[u][i]] = true;
         dist[adj[u][i]] = dist[u] + 1;
