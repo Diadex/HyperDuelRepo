@@ -42,8 +42,12 @@ public class BoardShadow : Board
     int nextIndex = 0;
     void Start() {
         tempPebble = boardPlacement[0];
-        pieces[0].self.transform.position = waitPebbles[0].self.transform.position + new Vector3(0, 0.5f, 0);
-        previous = waitPebbles[0];
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            waitPebbles[i].putPiece(pieces[i]);
+            waitPebbles[i].piece.self.transform.position = waitPebbles[i].self.transform.position + new Vector3(0, 0.5f, 0);
+        }
+        //previous = waitPebbles[0];
         int v = boardPlacement.Length;
         adj = new List<List<int>>(v);
         for (int i = 0; i < v; i++)
@@ -264,7 +268,7 @@ private bool BFS(List<List<int>> adj,
     for (int i = 0;
              i < adj[u].Count; i++)
     {
-      if (visited[adj[u][i]] == false)
+      if (visited[adj[u][i]] == false && boardPlacement[adj[u][i]].piece == null)
       {
         visited[adj[u][i]] = true;
         dist[adj[u][i]] = dist[u] + 1;
@@ -317,6 +321,15 @@ private List<List<int>> getMapConnections( List<List<int>> adj) {
     addEdge(adj, 19, 26);
     addEdge(adj, 18, 22);
     addEdge(adj, 29, 22);
+    addEdge(adj, 29, 28);
+    addEdge(adj, 30, 22);
+    addEdge(adj, 30, 28);
+    addEdge(adj, 31, 22);
+    addEdge(adj, 31, 28);
+    addEdge(adj, 32, 22);
+    addEdge(adj, 32, 28);
+    addEdge(adj, 33, 22);
+    addEdge(adj, 33, 28);
     return adj;
 }
 private static void addEdge(List<List<int>> adj,

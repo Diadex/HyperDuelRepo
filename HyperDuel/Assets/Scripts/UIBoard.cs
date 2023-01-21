@@ -59,7 +59,13 @@ public class UIBoard : MonoBehaviour
             //             animtype = 0
                         if (  hit.collider.CompareTag("PieceHit")) {
                             equipped = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
+                            if (equipped == null) {
+                                Debug.Log("AN ERROR 1 OCCURRED");
+                            }
                             targetPebble = boardS.GetPebbleByPiece( equipped);
+                            if (targetPebble == null) {
+                                Debug.Log("AN ERROR 2 OCCURRED");
+                            }
                             animationPlaying = true;
                             animType = 0;
                         }
