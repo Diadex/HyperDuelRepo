@@ -68,7 +68,6 @@ public class BoardShadow : Board
             
             
             timeRemaining = 0.3f;
-            //Debug.Log(tempName + " to " + tempPebble.self.name);
         }
         //UpwardsJump( pieces[0], (previous.transform.position));
         if ( Hop( pieces[0], (previous.transform.position) ,( tempPebble.self.transform.position))) {
@@ -88,12 +87,7 @@ public class BoardShadow : Board
     private Pebble hopPrev = null;
     public bool PathHop( Piece piece, Pebble endPebble) {
         if (!pebblePathMade) {
-            if (piece != null) {
-                Debug.Log(piece.gameObject.name);
-            }
             startPebble = GetPebbleByPiece(piece);
-            Debug.Log(startPebble.self.name);
-            //Debug.Log("MUH-"+ GetIndexOfPebble(startPebble));
             pathway = ShortestPebblePath(startPebble, endPebble);
             //getShortestDistance(adj, source, dest, v);
             //pathway = ShortestPebblePath(startPebble, endPebble, prevlist, isVisited);
@@ -103,14 +97,12 @@ public class BoardShadow : Board
             return false;
         }
         else if (pathway == null && !animationPlaying) {
-            Debug.Log("true returned");
             pebblePathMade = false;
             hopPrev = null;
             hopTarget = null;
             return true;
         }
         else {
-            Debug.Log("DEQUEUING");
             if (hopPrev == null) {
                 hopPrev = pathway.Dequeue();
                 hopTarget = pathway.Dequeue();
@@ -148,13 +140,10 @@ public class BoardShadow : Board
         int source = GetIndexOfPebble( startPebble), dest = GetIndexOfPebble( endPebble);
         Queue<int> path = getShortestDistance( adj, source, dest, v);
         int pathLength = path.Count;
-        Debug.Log("path length = " + pathLength);
         Queue<Pebble> shortestPath = new Queue<Pebble>();
         for ( int i = 0; i < pathLength; i++) {
-            Debug.Log("NNNN " + (path.Peek() + 1));
             shortestPath.Enqueue( boardPlacement[path.Dequeue()]);
         }
-        Debug.Log("path length2 = " + shortestPath.Count);
         return shortestPath;
     }
 
@@ -189,8 +178,6 @@ private Queue<int> getShortestDistance(List<List<int>> adj,
   if (BFS(adj, s, dest,
           v, pred, dist) == false)
   {
-    Debug.Log("Given source and destination" +
-                      "are not connected");
     return null;
   }
   // List to store path
@@ -202,17 +189,12 @@ private Queue<int> getShortestDistance(List<List<int>> adj,
     path.Add(pred[crawl]);
     crawl = pred[crawl];
   }
-  Debug.Log("Shortest path length is: " +
-                     dist[dest]);
-  Debug.Log("Path is ::");
    
   for (int i = path.Count - 1;
            i >= 0; i--)
   {
-    Debug.Log(path[i] + 1 + " named path ");
     result.Enqueue( path[i]);
   }
-  Debug.Log("length is: " + result.Count);
   return result;
 }
  
@@ -338,124 +320,6 @@ private static void addEdge(List<List<int>> adj,
   adj[i-1].Add(j-1);
   adj[j-1].Add(i-1);
 }
-    /*
-    
-
-
-        //bool isCompleted = false;
-        foreach (Pebble neighbor in startPebble.PebblesLinked)
-        {
-            Queue<int> currentPath = null;
-                            int index = GetIndexOfPebble( neighbor); 
-                            if (!isVisited[index]) {
-                                Queue<int> currentList = Clone(prevList);
-                                bool[] currentVisited = Clone(isVisited);
-                                currentVisited[index] = true;
-                                currentList.Enqueue(index);
-                                currentPath = ShortestPebblePath(neighbor, endPebble, currentList, currentVisited);
-                            }
-        }
-    
-            int index = GetIndexOfPebble( neighbor); 
-            if ( !isVisited[index]) {
-                if ( neighbor.Equals( endPebble)) { // dunno if works
-                    Debug.Log("SAMEEEE  " + neighbor.gameObject.name );
-                    Queue<int> prevListUpdated = Clone(prevList);
-                    bool[] isVisitedUpdated = Clone(isVisited);
-                    isVisitedUpdated[index] = true;
-                    prevListUpdated.Enqueue( index);
-                    if ( prevListUpdated != null) {
-                        if ( !isCompleted) {
-                            shortestPath = prevListUpdated;
-                            isCompleted = true;
-                        }
-                        else if (prevListUpdated.Count + depth < shortestPath.Count) {
-                            shortestPath = prevListUpdated;
-                        }
-                    }
-                }
-                else {
-                    Debug.Log( index + 1 + "        v");
-                    Queue<int> prevListUpdated = Clone(prevList);
-                    bool[] isVisitedUpdated = Clone(isVisited);
-                    isVisitedUpdated[index] = true;
-                    prevListUpdated.Enqueue( index);
-                    Queue<int> neighborPath = ShortestPebblePath(neighbor, endPebble, prevListUpdated, isVisitedUpdated, depth + 1);
-                    if (neighborPath != null && neighborPath.Peek().Equals(endPebble)) {
-                        if (isCompleted && (neighborPath.Count + depth < shortestPath.Count || shortestPath == null)) {
-                            shortestPath = neighborPath;
-                        }
-                        else if ( !isCompleted) {
-                            shortestPath = neighborPath;
-                        }
-                        isCompleted = true;
-                    }
-                    if ( !isCompleted && neighborPath != null && ( shortestPath == null || neighborPath.Count + depth < shortestPath.Count)) {
-                        Debug.Log( neighborPath.Count + "       neighbor Path");
-                        shortestPath = neighborPath;
-                    }
-                }
-            }
-
-
-
-    private Queue<int> ShortestPebblePath(Pebble startPebble, Pebble endPebble, Queue<int> prevList, bool[] isVisited) 
-    {
-        Queue<int> shortestPath = null;
-        foreach (Pebble neighbor in startPebble.PebblesLinked)
-        {
-            int index = GetIndexOfPebble( neighbor); 
-            bool isCompleted = false;
-            if ( !isVisited[index]) {
-                if ( neighbor.Equals( endPebble)) {
-                    if (isCompleted && shortestPath.Count > prevList.Count + 1) {
-                        
-                    }
-                    
-                    
-                    isCompleted = true;
-                }
-                else {
-                    
-                }
-            }
-        }
-        return shortestPath;
-        
-
-    }
-
-
-    private Queue<int> ShortestPebblePath2(Pebble startPebble, Pebble endPebble, Queue<int> prevList)
-    {
-        Queue<int> shortestPath = null;
-        foreach (Pebble neighbor in startPebble.PebblesLinked)
-        {
-            if (neighbor.visited) {continue;}
-            if ( neighbor == endPebble) {
-                neighbor.visited = true;
-                prevList.Enqueue(GetIndexOfPebble(neighbor));
-                return prevList;
-            }
-            else if (!neighbor.visited ) {
-                neighbor.visited = true;
-                Queue<int> anotherPath = new Queue<int>();
-                foreach (int index in prevList)
-                {
-                    anotherPath.Enqueue(index);
-                }
-                anotherPath.Enqueue(GetIndexOfPebble(neighbor));
-                Queue<int> pathres = ShortestPebblePath( startPebble, endPebble ,anotherPath);
-                if( pathres != null && shortestPath == null) {
-                    shortestPath = pathres;
-                }
-                else if (shortestPath.Count > pathres.Count) {
-                    shortestPath = pathres;
-                }
-            }
-        }
-        return shortestPath;
-    }*/
 
     private bool Hop( Piece piece, Vector3 startPebble, Vector3 endPebble) {
         Vector3 startPebbleLoc = startPebble + new Vector3(0, 0.5f, 0);
@@ -547,14 +411,12 @@ private static void addEdge(List<List<int>> adj,
     public Pebble GetPebbleByPiece(Piece piece) {
         foreach (Pebble pebble in boardPlacement)
         {
-            Debug.Log("pebble " + pebble.gameObject.name);
             if (pebble.piece == piece) {
                 return pebble;
             }
         }
         foreach (Pebble pebble in waitPebbles)
         {
-            Debug.Log("pebblew " + pebble.gameObject.name);
             if (pebble.piece == piece) {
                 return pebble;
             }
