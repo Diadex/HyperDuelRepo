@@ -77,8 +77,11 @@ public class BoardShadow : Board
         }
     }
     bool pebblePathMade = false;
+    bool animationPlaying = false;
     Pebble startPebble = null;
     static Queue<Pebble> pathway = null;// indexes of pebble path
+    private Pebble hopTarget = null;
+    private Pebble hopPrev = null;
     public bool PathHop( Piece piece, Pebble endPebble) {
         if (!pebblePathMade) {
             if (piece != null) {
@@ -92,20 +95,34 @@ public class BoardShadow : Board
             //pathway = ShortestPebblePath(startPebble, endPebble, prevlist, isVisited);
 
             pebblePathMade = true;
-        }
-        if (pathway == null) {
+            animationPlaying = true;
             return false;
+        }
+        else if (pathway == null && !animationPlaying) {
+            Debug.Log("true returned");
+            pebblePathMade = false;
+            hopPrev = null;
+            hopTarget = null;
+            return true;
         }
         else {
             Debug.Log("DEQUEUING");
-            int counter = pathway.Count;
-            for (int i = 0; i < counter; i++)
-            {
-                Debug.Log(pathway.Dequeue().gameObject.name);
+            if (hopPrev == null) {
+                hopPrev = pathway.Dequeue();
+                hopTarget = pathway.Dequeue();
             }
-            pebblePathMade = false;
-            Debug.Log("SUCCESS");
-            return true;
+
+            if ( Hop( piece, hopPrev.transform.position, hopTarget.transform.position)) {
+                if ( pathway.Count > 0) {
+                    hopPrev = hopTarget;
+                    hopTarget = pathway.Dequeue();
+                }
+                else { // animation finished...
+                    pathway = null;
+                    animationPlaying = false;
+                }
+            }
+            return false;
         }
     }
 
@@ -273,7 +290,7 @@ private List<List<int>> getMapConnections( List<List<int>> adj) {
     addEdge(adj, 1, 8);
     addEdge(adj, 13, 8);
     addEdge(adj, 13, 17);
-    addEdge(adj, 13, 17);
+    addEdge(adj, 22, 17);
     addEdge(adj, 12, 7);
     addEdge(adj, 12, 16);
     addEdge(adj, 16, 21);
