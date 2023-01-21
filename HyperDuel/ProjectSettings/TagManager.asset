@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PieceHit
+  - PebbleHit
   layers:
   - Default
   - TransparentFX

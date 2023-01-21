@@ -4,7 +4,6 @@ public class Pebble : MonoBehaviour {
     public Piece piece;
     public GameObject self;
     public Pebble[] PebblesLinked;
-
     public Pebble( Pebble[] pebbles) {
         piece = null;
     }

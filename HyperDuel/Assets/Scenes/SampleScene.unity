@@ -220,6 +220,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39110633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &42264542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42264544}
+  - component: {fileID: 42264543}
+  m_Layer: 0
+  m_Name: gameStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &42264543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42264542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1969bc1787603c94cb8092d726653b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTurn: 0
+  totalTurns: 1
+  isPaused: 0
+--- !u!4 &42264544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42264542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 961201268}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &146636597
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +282,7 @@ GameObject:
   - component: {fileID: 146636602}
   m_Layer: 0
   m_Name: Pebble 26
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -336,6 +383,7 @@ MonoBehaviour:
   - {fileID: 965853246}
   - {fileID: 512340337}
   - {fileID: 721098899}
+  visited: 0
 --- !u!1 &188420804
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +496,7 @@ GameObject:
   - component: {fileID: 213115542}
   m_Layer: 0
   m_Name: Pebble 20
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,6 +597,7 @@ MonoBehaviour:
   - {fileID: 375514235}
   - {fileID: 721098899}
   - {fileID: 1833612124}
+  visited: 0
 --- !u!1 &289572580
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +710,7 @@ GameObject:
   - component: {fileID: 289858833}
   m_Layer: 0
   m_Name: Pebble 23
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -761,6 +810,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 652311014}
   - {fileID: 1918989515}
+  visited: 0
 --- !u!1 &325489813
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +826,7 @@ GameObject:
   - component: {fileID: 325489818}
   m_Layer: 0
   m_Name: Pebble 2
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -876,6 +926,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1493086398}
   - {fileID: 1956529960}
+  visited: 0
 --- !u!1 &327836248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1100,7 @@ MonoBehaviour:
   - {fileID: 146636602}
   - {fileID: 965853246}
   - {fileID: 1833612124}
+  - {fileID: 2105054284}
   waitPebbles:
   - {fileID: 2105054284}
   pieces:
@@ -1188,7 +1240,7 @@ GameObject:
   - component: {fileID: 375514235}
   m_Layer: 0
   m_Name: Pebble 15
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1288,6 +1340,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1173054286}
   - {fileID: 213115542}
+  visited: 0
 --- !u!1 &385427218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1356,7 @@ GameObject:
   - component: {fileID: 385427223}
   m_Layer: 0
   m_Name: Pebble 9
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1404,6 +1457,7 @@ MonoBehaviour:
   - {fileID: 1956529960}
   - {fileID: 1658475049}
   - {fileID: 1772738564}
+  visited: 0
 --- !u!1 &512340332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,7 +1473,7 @@ GameObject:
   - component: {fileID: 512340337}
   m_Layer: 0
   m_Name: GoalA 25
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1519,6 +1573,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 146636602}
   - {fileID: 652311014}
+  visited: 0
 --- !u!1 &565225783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1589,7 @@ GameObject:
   - component: {fileID: 565225788}
   m_Layer: 0
   m_Name: Pebble 21
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,6 +1689,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1833612124}
   - {fileID: 1680650010}
+  visited: 0
 --- !u!1 &652311009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,7 +1705,7 @@ GameObject:
   - component: {fileID: 652311014}
   m_Layer: 0
   m_Name: Pebble 24
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1749,6 +1805,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 512340337}
   - {fileID: 289858833}
+  visited: 0
 --- !u!1 &685779567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +2012,7 @@ GameObject:
   - component: {fileID: 721098899}
   m_Layer: 0
   m_Name: Pebble 19
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2055,6 +2112,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 213115542}
   - {fileID: 1397067352}
+  visited: 0
 --- !u!1 &769373161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,7 +2225,7 @@ GameObject:
   - component: {fileID: 954986137}
   m_Layer: 0
   m_Name: Pebble 5
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2267,6 +2325,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1744143572}
   - {fileID: 2053733888}
+  visited: 0
 --- !u!1 &961201267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,6 +2356,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 367243187}
+  - {fileID: 42264544}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2312,7 +2372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b325989f860219746a404fb80a9aa7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStats: {fileID: 0}
+  animationPlaying: 0
+  animType: 0
+  gameStats: {fileID: 42264543}
   isWaiting: 0
   ableToMakeMoves: 1
   boardS: {fileID: 367243188}
@@ -2417,7 +2479,7 @@ GameObject:
   - component: {fileID: 965853246}
   m_Layer: 0
   m_Name: Pebble 27
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2517,6 +2579,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1833612124}
   - {fileID: 146636602}
+  visited: 0
 --- !u!1 &1047653771
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,7 +2903,7 @@ GameObject:
   - component: {fileID: 1173054286}
   m_Layer: 0
   m_Name: Pebble 11
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2941,6 +3004,7 @@ MonoBehaviour:
   - {fileID: 1658475049}
   - {fileID: 1460582269}
   - {fileID: 375514235}
+  visited: 0
 --- !u!1 &1235193044
 GameObject:
   m_ObjectHideFlags: 0
@@ -3053,7 +3117,7 @@ GameObject:
   - component: {fileID: 1239508011}
   m_Layer: 0
   m_Name: Pebble 8
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3153,6 +3217,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1956529960}
   - {fileID: 1575302728}
+  visited: 0
 --- !u!1 &1310006972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,7 +3405,7 @@ GameObject:
   - component: {fileID: 1397067352}
   m_Layer: 0
   m_Name: Pebble 18
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3441,6 +3506,7 @@ MonoBehaviour:
   - {fileID: 1772738564}
   - {fileID: 721098899}
   - {fileID: 1918989515}
+  visited: 0
 --- !u!1 &1460582264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3456,7 +3522,7 @@ GameObject:
   - component: {fileID: 1460582269}
   m_Layer: 0
   m_Name: Gate2B 7
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3557,6 +3623,7 @@ MonoBehaviour:
   - {fileID: 1546678002}
   - {fileID: 1744143572}
   - {fileID: 1173054286}
+  visited: 0
 --- !u!1 &1492491981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,7 +3736,7 @@ GameObject:
   - component: {fileID: 1493086398}
   m_Layer: 0
   m_Name: Pebble 3
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3770,6 +3837,7 @@ MonoBehaviour:
   - {fileID: 325489818}
   - {fileID: 2053733888}
   - {fileID: 1658475049}
+  visited: 0
 --- !u!1 &1546677997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,7 +3853,7 @@ GameObject:
   - component: {fileID: 1546678002}
   m_Layer: 0
   m_Name: Pebble 12
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3885,6 +3953,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1460582269}
   - {fileID: 1680650010}
+  visited: 0
 --- !u!1 &1575302723
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,7 +3969,7 @@ GameObject:
   - component: {fileID: 1575302728}
   m_Layer: 0
   m_Name: Pebble 13
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4000,6 +4069,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 2006481954}
   - {fileID: 1239508011}
+  visited: 0
 --- !u!1 &1576020854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,7 +4279,7 @@ GameObject:
   - component: {fileID: 1658475049}
   m_Layer: 0
   m_Name: Pebble 10
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4309,6 +4379,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 385427223}
   - {fileID: 1173054286}
+  visited: 0
 --- !u!1 &1680650005
 GameObject:
   m_ObjectHideFlags: 0
@@ -4324,7 +4395,7 @@ GameObject:
   - component: {fileID: 1680650010}
   m_Layer: 0
   m_Name: Pebble 16
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4424,6 +4495,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1546678002}
   - {fileID: 565225788}
+  visited: 0
 --- !u!1 &1744143567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4439,7 +4511,7 @@ GameObject:
   - component: {fileID: 1744143572}
   m_Layer: 0
   m_Name: Pebble 6
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4539,6 +4611,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 954986137}
   - {fileID: 1460582269}
+  visited: 0
 --- !u!1 &1764247238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4651,7 +4724,7 @@ GameObject:
   - component: {fileID: 1772738564}
   m_Layer: 0
   m_Name: Pebble 14
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4751,6 +4824,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 385427223}
   - {fileID: 1397067352}
+  visited: 0
 --- !u!1 &1782794631
 GameObject:
   m_ObjectHideFlags: 0
@@ -4960,7 +5034,7 @@ GameObject:
   - component: {fileID: 1833612124}
   m_Layer: 0
   m_Name: Gate2A 28
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5061,6 +5135,7 @@ MonoBehaviour:
   - {fileID: 565225788}
   - {fileID: 965853246}
   - {fileID: 213115542}
+  visited: 0
 --- !u!1 &1918989510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5076,7 +5151,7 @@ GameObject:
   - component: {fileID: 1918989515}
   m_Layer: 0
   m_Name: Gate1A 22
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5177,6 +5252,7 @@ MonoBehaviour:
   - {fileID: 289858833}
   - {fileID: 1397067352}
   - {fileID: 2006481954}
+  visited: 0
 --- !u!1 &1956529955
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,7 +5268,7 @@ GameObject:
   - component: {fileID: 1956529960}
   m_Layer: 0
   m_Name: Gate1B 1
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5293,6 +5369,7 @@ MonoBehaviour:
   - {fileID: 325489818}
   - {fileID: 1239508011}
   - {fileID: 385427223}
+  visited: 0
 --- !u!1 &1992641822
 GameObject:
   m_ObjectHideFlags: 0
@@ -5405,7 +5482,7 @@ GameObject:
   - component: {fileID: 2006481954}
   m_Layer: 0
   m_Name: Pebble 17
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5505,6 +5582,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1918989515}
   - {fileID: 1575302728}
+  visited: 0
 --- !u!1 &2053733883
 GameObject:
   m_ObjectHideFlags: 0
@@ -5520,7 +5598,7 @@ GameObject:
   - component: {fileID: 2053733888}
   m_Layer: 0
   m_Name: GoalB 4
-  m_TagString: Untagged
+  m_TagString: PebbleHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5620,6 +5698,7 @@ MonoBehaviour:
   PebblesLinked:
   - {fileID: 1493086398}
   - {fileID: 954986137}
+  visited: 0
 --- !u!1 &2105054279
 GameObject:
   m_ObjectHideFlags: 0
@@ -5732,4 +5811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   piece: {fileID: 1160342259}
   self: {fileID: 2105054279}
-  PebblesLinked: []
+  PebblesLinked:
+  - {fileID: 1918989515}
+  - {fileID: 1833612124}
+  visited: 0
