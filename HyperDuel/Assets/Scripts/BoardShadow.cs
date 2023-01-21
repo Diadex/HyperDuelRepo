@@ -78,7 +78,7 @@ public class BoardShadow : Board
     }
     bool pebblePathMade = false;
     Pebble startPebble = null;
-    Queue<int> pathway = null;// indexes of pebble path
+    static Queue<Pebble> pathway = null;// indexes of pebble path
     public bool PathHop( Piece piece, Pebble endPebble) {
         if (!pebblePathMade) {
             if (piece != null) {
@@ -86,18 +86,9 @@ public class BoardShadow : Board
             }
             startPebble = GetPebbleByPiece(piece);
             Debug.Log(startPebble.self.name);
-            Queue<int> prevlist = new Queue<int>();
             //Debug.Log("MUH-"+ GetIndexOfPebble(startPebble));
-            prevlist.Enqueue(GetIndexOfPebble(startPebble));
-            int v = boardPlacement.Length;
-            bool[] isVisited = new bool[v];
-            for(int i = 0; i < v; i++) {
-                isVisited[i] = false;
-            }
-            isVisited[GetIndexOfPebble(startPebble)] = true;
-            int source = GetIndexOfPebble( startPebble), dest = GetIndexOfPebble( endPebble);
-            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            printShortestDistance(adj, source, dest, v);
+            pathway = ShortestPebblePath(startPebble, endPebble);
+            //getShortestDistance(adj, source, dest, v);
             //pathway = ShortestPebblePath(startPebble, endPebble, prevlist, isVisited);
 
             pebblePathMade = true;
@@ -106,11 +97,11 @@ public class BoardShadow : Board
             return false;
         }
         else {
-            Queue<int> tempPathway = Clone( pathway);
             Debug.Log("DEQUEUING");
-            for (int i = 0; i < pathway.Count; i++)
+            int counter = pathway.Count;
+            for (int i = 0; i < counter; i++)
             {
-                Debug.Log(tempPathway.Dequeue() + 1);
+                Debug.Log(pathway.Dequeue().gameObject.name);
             }
             pebblePathMade = false;
             Debug.Log("SUCCESS");
@@ -125,41 +116,24 @@ public class BoardShadow : Board
     //      else 
     //      return shortestPath
     //  else return null; // means the search failed 
-    private Queue<int> ShortestPebblePath(Pebble startPebble, Pebble endPebble, Queue<int> prevList, bool[] isVisited) 
+    private Queue<Pebble> ShortestPebblePath(Pebble startPebble, Pebble endPebble) 
     {
-        Queue<int> shortestPath = null;
-        Queue<int>[] paths = new Queue<int>[3];
-        int pathsIndex = 0;
-        int indexStart = GetIndexOfPebble( startPebble);
-        isVisited[indexStart] = true;
-        int finishIndex = -1;
-        foreach (Pebble neighbor in startPebble.PebblesLinked) {
-            
-            int index = GetIndexOfPebble( neighbor);
-            if (!isVisited[index]) {
-                Queue<int> currentList = Clone(prevList);
-                currentList.Enqueue(index);
-                paths[pathsIndex] = currentList;
-                //paths[pathsIndex] = ShortestPebblePath(neighbor, endPebble, currentList, currentVisited);
-                if ( neighbor.Equals(endPebble)) {
-                    finishIndex = pathsIndex;
-                }
-                pathsIndex ++;
-            }
+        int v = boardPlacement.Length;
+        bool[] isVisited = new bool[v];
+        for(int i = 0; i < v; i++) {
+            isVisited[i] = false;
         }
-        for ( int i = 0; i < 3; i++) {
-            if ( paths[i] != null) {
-                if (i == finishIndex) {
-                    return paths[i]; // found a path to the end...
-                }
-                else {
-                    bool[] currentVisited = Clone(isVisited);
-                    Queue<int> currentPath = null;
-                }
-            }
+        isVisited[GetIndexOfPebble(startPebble)] = true;
+        int source = GetIndexOfPebble( startPebble), dest = GetIndexOfPebble( endPebble);
+        Queue<int> path = getShortestDistance( adj, source, dest, v);
+        int pathLength = path.Count;
+        Debug.Log("path length = " + pathLength);
+        Queue<Pebble> shortestPath = new Queue<Pebble>();
+        for ( int i = 0; i < pathLength; i++) {
+            Debug.Log("NNNN " + (path.Peek() + 1));
+            shortestPath.Enqueue( boardPlacement[path.Dequeue()]);
         }
-
-
+        Debug.Log("path length2 = " + shortestPath.Count);
         return shortestPath;
     }
 
@@ -185,57 +159,50 @@ public class BoardShadow : Board
 
 
  
-// function to print the shortest
-// distance and path between source
-// vertex and destination vertex
-private static void printShortestDistance(List<List<int>> adj,
+private Queue<int> getShortestDistance(List<List<int>> adj,
                                           int s, int dest, int v)
 {
-  // predecessor[i] array stores
-  // predecessor of i and distance
-  // array stores distance of i
-  // from s
+    Queue<int> result = new Queue<int>();
   int []pred = new int[v];
   int []dist = new int[v];
- 
   if (BFS(adj, s, dest,
           v, pred, dist) == false)
   {
     Debug.Log("Given source and destination" +
                       "are not connected");
-    return;
+    return null;
   }
- 
   // List to store path
   List<int> path = new List<int>();
   int crawl = dest;
   path.Add(crawl);
-   
   while (pred[crawl] != -1)
   {
     path.Add(pred[crawl]);
     crawl = pred[crawl];
   }
- 
-  // Print distance
   Debug.Log("Shortest path length is: " +
                      dist[dest]);
- 
-  // Print path
   Debug.Log("Path is ::");
    
   for (int i = path.Count - 1;
            i >= 0; i--)
   {
     Debug.Log(path[i] + 1 + " named path ");
+    result.Enqueue( path[i]);
   }
+  Debug.Log("length is: " + result.Count);
+  return result;
 }
  
+
+
+
 // a modified version of BFS that
 // stores predecessor of each vertex
 // in array pred and its distance
 // from source in array dist
-private static bool BFS(List<List<int>> adj,
+private bool BFS(List<List<int>> adj,
                         int src, int dest,
                         int v, int []pred,
                         int []dist)
@@ -309,8 +276,8 @@ private List<List<int>> getMapConnections( List<List<int>> adj) {
     addEdge(adj, 13, 17);
     addEdge(adj, 12, 7);
     addEdge(adj, 12, 16);
-    addEdge(adj, 12, 21);
-    addEdge(adj, 12, 28);
+    addEdge(adj, 16, 21);
+    addEdge(adj, 21, 28);
     addEdge(adj, 22, 23);
     addEdge(adj, 24, 23);
     addEdge(adj, 24, 25);
