@@ -60,17 +60,20 @@ public class UIBoard : MonoBehaviour
             //             animationPlaying = true;
             //             animtype = 0
                         if (  hit.collider.CompareTag("PieceHit")) {
-                            equipped = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
-                            if (equipped == null) {
-                                Debug.Log("AN ERROR 1 OCCURRED");
+                            Piece aPiece = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
+                            if (aPiece.belongsToPlayerA == gameStats.isPlayerATurn) {
+                                equipped = aPiece;
+                                if (equipped == null) {
+                                    Debug.Log("AN ERROR 1 OCCURRED");
+                                }
+                                targetPebble = boardS.GetPebbleByPiece( equipped);
+                                if (targetPebble == null) {
+                                    Debug.Log("AN ERROR 2 OCCURRED");
+                                }
+                                animationPlaying = true;
+                                animType = 0;
+                                boardS.disableParticlesOf(availableMovement);
                             }
-                            targetPebble = boardS.GetPebbleByPiece( equipped);
-                            if (targetPebble == null) {
-                                Debug.Log("AN ERROR 2 OCCURRED");
-                            }
-                            animationPlaying = true;
-                            animType = 0;
-                            boardS.disableParticlesOf(availableMovement);
                         }
             //         // else if a card
             //     else if(target pebble is not active)
@@ -81,11 +84,14 @@ public class UIBoard : MonoBehaviour
             //                 animtype = 0
             //             // else if a card
                         if (  hit.collider.CompareTag("PieceHit")) {
-                            equipped = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
-                            targetPebble = boardS.GetPebbleByPiece( equipped);
-                            animationPlaying = true;
-                            animType = 0;
-                            boardS.disableParticlesOf(availableMovement);
+                            Piece aPiece = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
+                            if (aPiece.belongsToPlayerA == gameStats.isPlayerATurn) {
+                                equipped = aPiece;
+                                targetPebble = boardS.GetPebbleByPiece( equipped);
+                                animationPlaying = true;
+                                animType = 0;
+                                boardS.disableParticlesOf(availableMovement);
+                            }
                         }
             //             else if (raycast was a pebble)
             //                 set the target pebble as that pebble
@@ -144,6 +150,7 @@ public class UIBoard : MonoBehaviour
                     targetPebble = null;
                     equipped = null;
                     boardS.disableParticlesOf(availableMovement);
+                    gameStats.isPlayerATurn = !gameStats.isPlayerATurn;
                             Debug.Log("c");
                 }
             }

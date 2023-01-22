@@ -508,6 +508,16 @@ public class BoardShadow : Board
         addEdge(adj, 32, 28);
         addEdge(adj, 33, 22);
         addEdge(adj, 33, 28);
+        addEdge(adj, 34, 1);
+        addEdge(adj, 34, 7);
+        addEdge(adj, 35, 1);
+        addEdge(adj, 35, 7);
+        addEdge(adj, 36, 1);
+        addEdge(adj, 36, 7);
+        addEdge(adj, 37, 1);
+        addEdge(adj, 37, 7);
+        addEdge(adj, 38, 1);
+        addEdge(adj, 38, 7);
         return adj;
     }
     private static void addEdge(List<List<int>> adj,

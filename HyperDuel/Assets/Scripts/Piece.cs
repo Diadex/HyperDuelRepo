@@ -9,4 +9,5 @@ public class Piece : MonoBehaviour
     public int waitStatus = 0;
     public int attackStat;
     public float pieceMoveSpeed = 0.5f;
+    public bool belongsToPlayerA = true;
 }
