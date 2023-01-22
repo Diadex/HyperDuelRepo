@@ -40,6 +40,8 @@ public class UIBoard : MonoBehaviour
         animType = 0;
     }
 
+    List<int> availableMovement = null;
+    bool showPossibleMovement = false;
     private void Update()
     {
         
@@ -68,6 +70,7 @@ public class UIBoard : MonoBehaviour
                             }
                             animationPlaying = true;
                             animType = 0;
+                            boardS.disableParticlesOf(availableMovement);
                         }
             //         // else if a card
             //     else if(target pebble is not active)
@@ -82,6 +85,7 @@ public class UIBoard : MonoBehaviour
                             targetPebble = boardS.GetPebbleByPiece( equipped);
                             animationPlaying = true;
                             animType = 0;
+                            boardS.disableParticlesOf(availableMovement);
                         }
             //             else if (raycast was a pebble)
             //                 set the target pebble as that pebble
@@ -90,20 +94,27 @@ public class UIBoard : MonoBehaviour
                         else if ( hit.collider.CompareTag("PebbleHit")) {
                             // if the pebble is an available move, do the following:
                             //      revert all pebble changed looks...
-                            targetPebble = boardS.GetPebbleByGameObject( hit.collider.gameObject);
-                            animationPlaying = true;
-                            animType = 2;
+                            Pebble temp = boardS.GetPebbleByGameObject( hit.collider.gameObject);
+                            if (availableMovement.Contains( boardS.GetIndexOfPebble(temp))) {
+                                targetPebble = temp;
+                                animationPlaying = true;
+                                animType = 2;
+                            }
                             Debug.Log("a");
                         }
                     }
                 }
             }
-        }    
+        }
+        
         // UI change, not animation...
-        if (!animationPlaying && targetPebble == null && animType == 0 && equipped != null) {
+        if (showPossibleMovement ) { // && availableMovement == null && !animationPlaying && targetPebble == null && animType == 0 && equipped != null
             // get available pebble locations since we know the equipped piece
             // for every location actually available, update the available moves
-            // for every location, change the way the pebble looks...
+            // for every location, enable the particle system...
+            availableMovement = boardS.getAllPebblesInRadius(equipped);
+            boardS.enableDisableParticlesOf(availableMovement);
+            showPossibleMovement = false;
         }
 
         
@@ -115,6 +126,8 @@ public class UIBoard : MonoBehaviour
                     targetPebble.piece = equipped;
                     animationPlaying = false;
                     targetPebble = null;
+                    availableMovement = null;
+                    showPossibleMovement = true;
                             Debug.Log("b");
                 }
             }
@@ -130,6 +143,7 @@ public class UIBoard : MonoBehaviour
                     animationPlaying = false;
                     targetPebble = null;
                     equipped = null;
+                    boardS.disableParticlesOf(availableMovement);
                             Debug.Log("c");
                 }
             }
