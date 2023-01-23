@@ -5,6 +5,7 @@ public class Pebble : MonoBehaviour {
     public GameObject self;
     public Pebble[] PebblesLinked;
     public bool isWaitPebble;
+    public bool isPlayerAPebble = false;
     public ParticleSystem selectableParticles;
     private bool particlesAreOn = false;
     public Pebble( Pebble[] pebbles) {

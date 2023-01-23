@@ -7,7 +7,10 @@ using Random = System.Random;
 public class BoardShadow : Board
 {
     public Pebble[] boardPlacement;
-    public Pebble[] waitPebbles;
+    public Pebble[] waitPebblesA;
+    public Pebble[] waitPebblesB;
+    public Pebble[] healStationsA;
+    public Pebble[] healStationsB;
     public Piece[] pieces;
     private float timeRemaining = 1;
     public float hopWaitTime = 0.1f;
@@ -42,10 +45,15 @@ public class BoardShadow : Board
     int nextIndex = 0;
     void Start() {
         tempPebble = boardPlacement[0];
-        for (int i = 0; i < pieces.Length && i < waitPebbles.Length; i++)
+        for (int i = 0; i < pieces.Length && i < waitPebblesA.Length; i++)
         {
-            waitPebbles[i].putPiece(pieces[i]);
-            waitPebbles[i].piece.self.transform.position = waitPebbles[i].self.transform.position + new Vector3(0, 0.5f, 0);
+            waitPebblesA[i].putPiece(pieces[i]);
+            waitPebblesA[i].piece.self.transform.position = waitPebblesA[i].self.transform.position + new Vector3(0, 0.5f, 0);
+        }
+        for (int i = 0; i < pieces.Length && i < waitPebblesB.Length; i++)
+        {
+            waitPebblesB[i].putPiece(pieces[i + waitPebblesA.Length]);
+            waitPebblesB[i].piece.self.transform.position = waitPebblesB[i].self.transform.position + new Vector3(0, 0.5f, 0);
         }
         //previous = waitPebbles[0];
         int v = boardPlacement.Length;
@@ -74,6 +82,229 @@ public class BoardShadow : Board
              tempPebble = tempPebble.PebblesLinked[nextIndex];
         }
     }
+    bool wasChecked = false;
+    Piece[] updatePieces = null;
+    int indexUpdatePieces = 0;
+    Pebble[] startPebbles = null;
+    bool isDeathAnimation = false;
+    public bool BoardUpdate() {
+        if (!wasChecked) {
+            List<Piece> tempPieces = null;
+            List<Pebble> tempStarts = null;
+            for (int i = 0; i < 28; i++) {
+                Piece current = boardPlacement[i].piece;
+                if (current != null && !IsInHeal(current)) {
+                    //Debug.Log("mmmm  " + boardPlacement[i].piece.gameObject.name);
+                    // check for surround deaths
+                    Pebble[] neighbors = boardPlacement[i].PebblesLinked;
+                    bool deathMarked = true;
+                    foreach (Pebble p in neighbors) {
+                        if (p.piece == null || (p.piece.belongsToPlayerA == current.belongsToPlayerA)) {
+                            //Debug.Log("TTTTTTTTTTTTTTT");
+                            deathMarked = false;
+                        }
+                    } // put surround deaths to the list
+                    if (deathMarked) {
+                        Debug.Log("BBBBBBBBBB " + current.gameObject.name);
+                        current.surroundDeath = true;
+                        tempPieces = new List<Piece>();
+                        tempStarts = new List<Pebble>();
+                        tempPieces.Add(current);//
+                        tempStarts.Add(GetPebbleByPiece(current));
+                        isDeathAnimation = true;
+                    }
+                }
+            }
+            if (tempPieces == null || tempStarts == null) {
+                return true;
+            }
+            updatePieces = tempPieces.ToArray();
+            startPebbles = tempStarts.ToArray();
+            wasChecked = true;
+            indexUpdatePieces = 0;
+            return false;
+        }
+        else {
+            if (isDeathAnimation) {
+                if (indexUpdatePieces >= updatePieces.Length) {
+                    Debug.Log("d");
+                    // the animation ended
+                    isDeathAnimation = false;
+                }
+                else {
+                    //Debug.Log("s");
+                    // the animation continues
+                    if (PieceDeathAnimate(updatePieces[indexUpdatePieces])) {
+                        Debug.Log("t");
+                        indexUpdatePieces ++;
+                    }
+                    return false;
+                }
+            } // there is no animation, reset...
+            if (!isDeathAnimation) {
+                Debug.Log("l");
+                wasChecked = false;
+                updatePieces = null;
+                indexUpdatePieces = 0;
+                startPebbles = null;
+                return true;
+            }
+        }
+        Debug.Log("2");
+        return false;
+    }
+    private bool IsInHeal( Piece p) {
+        foreach (Pebble pebble in healStationsA)
+        {
+            if ( pebble.piece != null && pebble.piece.Equals(p)) {
+                Debug.Log(" in heal station " + pebble.piece.gameObject.name);
+                return true;
+            }
+        }
+        foreach (Pebble pebble in healStationsB)
+        {
+            if ( pebble.piece != null && pebble.piece.Equals(p)) {
+                Debug.Log(" in heal station " + pebble.piece.gameObject.name);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void WaitStatusUpdate() {
+        foreach (Piece p in pieces)
+        {
+            p.waitStatus --;
+        }
+        foreach (Pebble pebble in healStationsA) {
+            if (pebble.piece != null && pebble.piece.waitStatus > 3 ) {
+                pebble.piece.waitStatus = 3;
+            }
+        }
+        foreach (Pebble pebble in healStationsB) {
+            if (pebble.piece != null && pebble.piece.waitStatus > 3 ) {
+                pebble.piece.waitStatus = 3;
+            }
+        }
+    }
+
+
+    bool deathAnimationPlaying = false;
+    Piece[] currentPieceDeath = null;
+    Pebble[] startPebbleDeath = null;
+    Pebble[] destinationPebbleDeath = null;
+    int moveIndexDeathAnim = 0;
+    public bool PieceDeathAnimate( Piece piece) {
+        if (!deathAnimationPlaying) {
+            bool bothHealersFull = true;
+            bool oneHealerFull = false;
+            Pebble[] healStations; // find the appropriate healstation
+            if (piece.belongsToPlayerA) {healStations = healStationsA;}
+            else {healStations = healStationsB;}
+            foreach (Pebble healer in healStations) // understand the situation, how many are full
+            {
+                if (healer) {
+                    if (healer.piece != null) { // has piece
+                        if (!oneHealerFull) {oneHealerFull = true;}
+                        else {oneHealerFull = false;}
+                    }
+                    else { // doesn't have a piece
+                        if (bothHealersFull) {bothHealersFull = false;}
+                    }
+                }
+            }
+            if (!oneHealerFull && !bothHealersFull) { // none have any
+                currentPieceDeath = new Piece[1];
+                startPebbleDeath = new Pebble[1];
+                destinationPebbleDeath = new Pebble[1];
+
+                currentPieceDeath[0] = piece;
+                startPebbleDeath[0] = GetPebbleByPiece(piece);
+                destinationPebbleDeath[0] = healStations[0];
+            }
+            else if ( oneHealerFull) { // only one of them is full
+                currentPieceDeath = new Piece[2];
+                startPebbleDeath = new Pebble[2];
+                destinationPebbleDeath = new Pebble[2];
+
+                currentPieceDeath[0] = healStations[0].piece;
+                startPebbleDeath[0] = healStations[0];
+                destinationPebbleDeath[0] = healStations[1];
+
+                currentPieceDeath[1] = piece;
+                startPebbleDeath[1] = GetPebbleByPiece(piece);
+                destinationPebbleDeath[1] = healStations[0];
+            }
+            else if ( bothHealersFull) { // only one of them is full
+                currentPieceDeath = new Piece[3];
+                startPebbleDeath = new Pebble[3];
+                destinationPebbleDeath = new Pebble[3];
+
+                currentPieceDeath[0] = healStations[1].piece;
+                startPebbleDeath[0] = healStations[1];
+                Pebble waitPebble = null;
+                Pebble[] waitPebbles; // find the appropriate waitPebbleGroup
+                if (piece.belongsToPlayerA) {waitPebbles = waitPebblesA;}
+                else {waitPebbles = waitPebblesB;}
+                bool hasFoundWaitPebble = false;
+                foreach (Pebble p in waitPebbles)
+                {
+                    if ( !hasFoundWaitPebble && p.piece == null) {
+                        waitPebble = p;
+                        hasFoundWaitPebble = true;
+                    }
+                }
+                destinationPebbleDeath[0] = waitPebble;
+
+                currentPieceDeath[1] = healStations[0].piece;
+                startPebbleDeath[1] = healStations[0];
+                destinationPebbleDeath[1] = healStations[1];
+
+                currentPieceDeath[2] = piece;
+                startPebbleDeath[2] = GetPebbleByPiece(piece);
+                destinationPebbleDeath[2] = healStations[0];
+            }
+            else {
+                Debug.Log("AN ERROR OCCURRED--- at BoardShadow");
+            }
+            deathAnimationPlaying = true;
+        }
+        else {
+            if ( currentPieceDeath.Length <= moveIndexDeathAnim) { // the animation has ended
+                foreach (Piece pieceCurrent in currentPieceDeath)
+                {
+                    pieceCurrent.waitStatus = 3;
+                }
+                deathAnimationPlaying = false;
+                moveIndexDeathAnim = 0;
+                currentPieceDeath = null;
+                startPebbleDeath = null;
+                destinationPebbleDeath = null;
+                return true;
+            }
+            if ( Hop( currentPieceDeath[moveIndexDeathAnim], startPebbleDeath[moveIndexDeathAnim].transform.position, destinationPebbleDeath[moveIndexDeathAnim].transform.position)) {
+                Piece equipped = currentPieceDeath[moveIndexDeathAnim];
+                Pebble prev = GetPebbleByPiece( equipped);
+                prev.piece = null;
+                destinationPebbleDeath[moveIndexDeathAnim].piece = equipped;
+                moveIndexDeathAnim++;
+            }
+        }
+        return false;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     bool pebblePathMade = false;
     bool animationPlaying = false;
     Pebble startPebble = null;
@@ -319,12 +550,6 @@ public class BoardShadow : Board
     }
     public Pebble GetPebbleByPiece(Piece piece) {
         foreach (Pebble pebble in boardPlacement)
-        {
-            if (pebble.piece == piece) {
-                return pebble;
-            }
-        }
-        foreach (Pebble pebble in waitPebbles)
         {
             if (pebble.piece == piece) {
                 return pebble;

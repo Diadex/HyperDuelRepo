@@ -42,6 +42,7 @@ public class UIBoard : MonoBehaviour
 
     List<int> availableMovement = null;
     bool showPossibleMovement = false;
+    bool boardUpdate = false;
     private void Update()
     {
         
@@ -122,11 +123,19 @@ public class UIBoard : MonoBehaviour
             boardS.enableDisableParticlesOf(availableMovement);
             showPossibleMovement = false;
         }
+        if (boardUpdate) {
+            if (boardS.BoardUpdate()) {
+                Debug.Log("aaaaaaaaaa");
+                boardUpdate = false;
+            }
+            //Debug.Log("kkkkkkkkkk");
+            //boardS.WaitStatusUpdate();
+        }
 
         
         // if (animationPlaying && player's turn)
         if (animationPlaying && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
-            Debug.Log("k");
+            //Debug.Log("k");
             if (animType == 0) { // we selected a piece, UpwardsJump the piece in place.
                 if (boardS.UpwardsJump(equipped, targetPebble.self.transform.position)) {
                     targetPebble.piece = equipped;
@@ -151,6 +160,7 @@ public class UIBoard : MonoBehaviour
                     equipped = null;
                     boardS.disableParticlesOf(availableMovement);
                     gameStats.isPlayerATurn = !gameStats.isPlayerATurn;
+                    boardUpdate = true;
                             Debug.Log("c");
                 }
             }
