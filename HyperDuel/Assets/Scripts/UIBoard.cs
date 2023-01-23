@@ -43,9 +43,22 @@ public class UIBoard : MonoBehaviour
     List<int> availableMovement = null;
     bool showPossibleMovement = false;
     bool boardUpdate = false;
+    bool isTurnEnd = false;
     private void Update()
     {
         
+        // UI change, not animation...
+        if (showPossibleMovement ) { // && availableMovement == null && !animationPlaying && targetPebble == null && animType == 0 && equipped != null
+            if ( equipped.CanMove()) {
+                // get available pebble locations since we know the equipped piece
+                // for every location actually available, update the available moves
+                // for every location, enable the particle system...
+                availableMovement = boardS.getAllPebblesInRadius(equipped);
+                boardS.enableDisableParticlesOf(availableMovement);
+            }
+            showPossibleMovement = false;
+        }
+
         // if clicked
         if (Input.GetMouseButtonDown(0)) {
             //     raycast stuff
@@ -55,30 +68,7 @@ public class UIBoard : MonoBehaviour
                 // if (!animationPlaying && player's turn) // animation is not playing, pieces are clickable.
                 if (!animationPlaying && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
             //     if (a piece is not active)
-                    if (equipped == null ) {
-            //         if (raycast was a piece)
-            //             set current piece as that piece
-            //             animationPlaying = true;
-            //             animtype = 0
-                        if (  hit.collider.CompareTag("PieceHit")) {
-                            Piece aPiece = boardS.GetPieceByGameObject(hit.collider.gameObject); // dont forget to set to null when done
-                            if (aPiece.belongsToPlayerA == gameStats.isPlayerATurn) {
-                                equipped = aPiece;
-                                if (equipped == null) {
-                                    Debug.Log("AN ERROR 1 OCCURRED");
-                                }
-                                targetPebble = boardS.GetPebbleByPiece( equipped);
-                                if (targetPebble == null) {
-                                    Debug.Log("AN ERROR 2 OCCURRED");
-                                }
-                                animationPlaying = true;
-                                animType = 0;
-                                boardS.disableParticlesOf(availableMovement);
-                            }
-                        }
-            //         // else if a card
-            //     else if(target pebble is not active)
-                    } else if(targetPebble == null) {
+                    if (equipped == null || targetPebble == null ) {
             //             if (raycast was a piece)
             //                 set the current piece as that piece
             //                 animationPlaying = true;
@@ -102,7 +92,7 @@ public class UIBoard : MonoBehaviour
                             // if the pebble is an available move, do the following:
                             //      revert all pebble changed looks...
                             Pebble temp = boardS.GetPebbleByGameObject( hit.collider.gameObject);
-                            if (availableMovement.Contains( boardS.GetIndexOfPebble(temp))) {
+                            if ( availableMovement != null && availableMovement.Contains( boardS.GetIndexOfPebble(temp))) {
                                 targetPebble = temp;
                                 animationPlaying = true;
                                 animType = 2;
@@ -114,24 +104,20 @@ public class UIBoard : MonoBehaviour
             }
         }
         
-        // UI change, not animation...
-        if (showPossibleMovement ) { // && availableMovement == null && !animationPlaying && targetPebble == null && animType == 0 && equipped != null
-            // get available pebble locations since we know the equipped piece
-            // for every location actually available, update the available moves
-            // for every location, enable the particle system...
-            availableMovement = boardS.getAllPebblesInRadius(equipped);
-            boardS.enableDisableParticlesOf(availableMovement);
-            showPossibleMovement = false;
-        }
         if (boardUpdate) {
+            if ( isTurnEnd) {
+                boardS.WaitStatusUpdate();
+                Debug.Log("FFFFFFFFFFFFFFFFFFFFF");
+                isTurnEnd = false;
+            }
             if (boardS.BoardUpdate()) {
                 Debug.Log("aaaaaaaaaa");
                 boardUpdate = false;
+                isTurnEnd = true;
             }
             //Debug.Log("kkkkkkkkkk");
             //boardS.WaitStatusUpdate();
         }
-
         
         // if (animationPlaying && player's turn)
         if (animationPlaying && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
