@@ -14,6 +14,7 @@ public class Piece : MonoBehaviour
     public bool belongsToPlayerA = true;
     public bool surroundDeath = false;
     public PieceStatus statusUI; 
+    public PieceAttack attackStatus;
     private void Start() {
         statusUI = GetComponent<PieceStatus>();
     }
@@ -42,4 +43,8 @@ public class Piece : MonoBehaviour
         }
         return true;
     }
+
+    // public Tuple<int, PieceAttack.AttackType> GetPieceMoveAtPercentage( int percentage) {
+        
+    // }
 }
