@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Pebble : MonoBehaviour {
@@ -48,5 +49,15 @@ public class Pebble : MonoBehaviour {
             selectableParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             particlesAreOn = false;
         }
+    }
+
+    internal bool HasPieceAsNeighbor( Piece p)
+    {
+        foreach (Pebble pe in PebblesLinked) {
+            if ( p.Equals(pe)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
