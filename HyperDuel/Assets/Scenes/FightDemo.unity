@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c0c070cae93aa4bbc186d568106775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaling: {fileID: 1458819032}
   cam: {fileID: 628696459}
   parallaxEffect: 1
 --- !u!1 &408085754
@@ -955,13 +956,22 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.24438037
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
+      time: 0.94008875
+      value: 0.7832303
+      inSlope: 2.4315393
+      outSlope: 2.4315393
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3.638818
+      outSlope: 3.638818
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5233529
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -972,12 +982,12 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 4.343463
+      outSlope: 4.343463
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.131243
     - serializedVersion: 3
       time: 0.19048634
       value: 0.60251033
@@ -1008,7 +1018,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  "secondAnimT\u0130me": 2
+  "secondAnimT\u0130me": 20
   secondGoSpeed: 0.5
   goDistance2: 9
   FaceSprite: {fileID: 596132026}
@@ -1200,6 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c0c070cae93aa4bbc186d568106775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaling: {fileID: 1458819032}
   cam: {fileID: 628696459}
   parallaxEffect: 0
 --- !u!1 &776036218
@@ -1693,6 +1704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c0c070cae93aa4bbc186d568106775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaling: {fileID: 1458819032}
   cam: {fileID: 628696459}
   parallaxEffect: 0.5
 --- !u!1 &1291994974
@@ -1794,6 +1806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c0c070cae93aa4bbc186d568106775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaling: {fileID: 1458819032}
   cam: {fileID: 628696459}
   parallaxEffect: 0.2
 --- !u!1 &1294431788
@@ -1909,7 +1922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3549f6025265bb41b5189e0f69d253a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 160
   charScale: {fileID: 1254917630}
   scaleFrom: 300
   distanceFromBottom: 0.15
@@ -2032,6 +2044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c0c070cae93aa4bbc186d568106775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scaling: {fileID: 1458819032}
   cam: {fileID: 628696459}
   parallaxEffect: 0.6
 --- !u!1 &1794368857

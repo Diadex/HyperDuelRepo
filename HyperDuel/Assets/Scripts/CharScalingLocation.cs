@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharScalingLocation : MonoBehaviour
 {
-    public float size;
+    private float size;
     public CharSize charScale;
     public float scaleFrom = 300;
     public float distanceFromBottom = 0.15f;
