@@ -29,6 +29,8 @@ public class AttackCameraMotions : MonoBehaviour
     private float waitTime = 1;
     private bool waitFlag = true;
 
+    public GameObject face;
+
     public float characterShowWaitDuration = 1f;
     void Update()
     {
@@ -70,7 +72,7 @@ public class AttackCameraMotions : MonoBehaviour
         {
             firstDurationCounter = Time.deltaTime;
             percentageAnim += firstDurationCounter * secondGoSpeed / secondAnimTİme;
-            Vector3 vec1 = Vector3.Lerp(startpos, new Vector3( (-1 * goDistance2 * backgroundSize), 0, 0), secondRollCurve1.Evaluate(percentageAnim * 2));
+            Vector3 vec1 = Vector3.Lerp(startpos, new Vector3( (-1 * goDistance2 * backgroundSize / 2), 0, 0), secondRollCurve1.Evaluate(percentageAnim * 2));
             transform.position = vec1;
         }
         else if (percentageAnim < 1)
@@ -78,11 +80,14 @@ public class AttackCameraMotions : MonoBehaviour
             if ( flag1) { FaceSprite.enabled = true; flag1 = false; }
             firstDurationCounter = Time.deltaTime;
             percentageAnim += firstDurationCounter * secondGoSpeed / secondAnimTİme;
-            Vector3 vec1 = Vector3.Lerp(new Vector3((goDistance2 * backgroundSize), 0, 0) , Vector3.zero, secondRollCurve2.Evaluate((percentageAnim - 0.5f) * 2));
+            //Vector3 vec1 = Vector3.Lerp(new Vector3((goDistance2 * backgroundSize), 0, 0) , Vector3.zero, secondRollCurve2.Evaluate((percentageAnim - 0.5f) * 2));
+            Vector3 vec1 = Vector3.Lerp( new Vector3((-1 * goDistance2 * backgroundSize / 2), 0, 0), new Vector3((-1 * goDistance2 * backgroundSize),0,0), secondRollCurve2.Evaluate((percentageAnim - 0.5f) * 2));
             transform.position = vec1;
+            face.transform.position = new Vector3((-1 * goDistance2 * backgroundSize) + 0.6f, 0, 0);
         }
         else
         {
+            face.transform.position = new Vector3( 0.6f, 0,0);
             transform.position = Vector3.zero;
             animationSchedule++;
         }
