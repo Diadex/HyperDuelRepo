@@ -205,3 +205,7 @@ Received Import Request.
   path: Assets/GameAssests/Colors/SecondaryPathway.mat
   artifactKey: Guid(a8adcf5e1696c5b4688635bd7ec1d070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/GameAssests/Colors/SecondaryPathway.mat using Guid(a8adcf5e1696c5b4688635bd7ec1d070) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e7a416c12b870694da6d2ce199e281a') in 0.032480 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
