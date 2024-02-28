@@ -18,7 +18,7 @@ public class UIBoard : MonoBehaviour
     private Camera mainCamera;
 
     //private Renderer _renderer;
-    //public GameStats gameStats;
+    public GameStats gameStats;
     private Ray ray;
     private RaycastHit hit;
     //private int myLayerMask = 1 << 6;
@@ -55,13 +55,13 @@ public class UIBoard : MonoBehaviour
 
     private void animationInitiate0() {
         Piece aPiece = boardS.GetPieceByGameObject(hit.collider.gameObject);
-        //if (aPiece.belongsToPlayerA == gameStats.isPlayerATurn) {
+        if (aPiece.belongsToPlayerA == gameStats.isPlayerATurn) {
             equipped = aPiece;
             targetPebble = boardS.GetPebbleByPiece( equipped);
             boardS.disableParticlesOf(availableMovement);
             animType = 0;
             animationPlaying = true;
-        //}
+        }
         setwasHitFalse();
     }
     private void setwasHitFalse() {
@@ -74,7 +74,7 @@ public class UIBoard : MonoBehaviour
         
         
         // UI change, not animation...
-        if (showPossibleMovement) { // && availableMovement == null && !animationPlaying && targetPebble == null && animType == 0 && equipped != null) { 
+        if (showPossibleMovement ) { // && availableMovement == null && !animationPlaying && targetPebble == null && animType == 0 && equipped != null
             if ( equipped.CanMove()) {
                 // get available pebble locations since we know the equipped piece
                 // for every location actually available, update the available moves
@@ -147,8 +147,8 @@ public class UIBoard : MonoBehaviour
                 }
             }
             else if ( movementMode == -1) {
+                Debug.Log("Movement -1");
                 boardS.WaitStatusUpdate();
-                Debug.Log("FFFFFFFFFFFFFFFFFFFFF");
                 boardUpdate = true;
                 animationPlaying = true;
                 animType = 4;
@@ -217,10 +217,10 @@ public class UIBoard : MonoBehaviour
                     targetPebble = null;
                     equipped = null;
                     boardS.disableParticlesOf(availableMovement);
-                    //gameStats.isPlayerATurn = !gameStats.isPlayerATurn;
+                    gameStats.isPlayerATurn = !gameStats.isPlayerATurn;
                     boardUpdate = true;
                             Debug.Log("c");
-                    movementMode = 3;
+                    movementMode = -1;
                 }
             }
             else if ( animType == 3) { // we selected something to attack...
@@ -231,6 +231,7 @@ public class UIBoard : MonoBehaviour
                             Debug.Log("f");
 
                 if (boardUpdate) {
+                    Debug.Log("UPDATE");
                     if (boardS.BoardUpdate()) {
                         boardUpdate = false;
                         animationPlaying = false;
