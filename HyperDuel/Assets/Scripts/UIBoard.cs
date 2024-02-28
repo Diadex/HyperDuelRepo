@@ -18,7 +18,7 @@ public class UIBoard : MonoBehaviour
     private Camera mainCamera;
 
     //private Renderer _renderer;
-    public GameStats gameStats;
+    //public GameStats gameStats;
     private Ray ray;
     private RaycastHit hit;
     //private int myLayerMask = 1 << 6;
@@ -55,13 +55,13 @@ public class UIBoard : MonoBehaviour
 
     private void animationInitiate0() {
         Piece aPiece = boardS.GetPieceByGameObject(hit.collider.gameObject);
-        if (aPiece.belongsToPlayerA == gameStats.isPlayerATurn) {
+        //if (aPiece.belongsToPlayerA == gameStats.isPlayerATurn) {
             equipped = aPiece;
             targetPebble = boardS.GetPebbleByPiece( equipped);
             boardS.disableParticlesOf(availableMovement);
             animType = 0;
             animationPlaying = true;
-        }
+        //}
         setwasHitFalse();
     }
     private void setwasHitFalse() {
@@ -74,7 +74,7 @@ public class UIBoard : MonoBehaviour
         
         
         // UI change, not animation...
-        if (showPossibleMovement ) { // && availableMovement == null && !animationPlaying && targetPebble == null && animType == 0 && equipped != null
+        if (showPossibleMovement) { // && availableMovement == null && !animationPlaying && targetPebble == null && animType == 0 && equipped != null) { 
             if ( equipped.CanMove()) {
                 // get available pebble locations since we know the equipped piece
                 // for every location actually available, update the available moves
@@ -110,7 +110,7 @@ public class UIBoard : MonoBehaviour
             //...
         }
         // if the turn is player1's
-        if (!animationPlaying && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
+        if (!animationPlaying) { // && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
         // activate timer countdown for p1, set mode to mode 1
             // if the timer was inactive and movementmode was 0,
             if (movementMode == 0) {movementMode = 1;}
@@ -136,14 +136,14 @@ public class UIBoard : MonoBehaviour
             else if ( movementMode == 3) {
                 if (wasHitPiece) {
                     Piece aPiece = boardS.GetPieceByGameObject(hit.collider.gameObject);
-                    if (aPiece.belongsToPlayerA != gameStats.isPlayerATurn) {
+                    //if (aPiece.belongsToPlayerA != gameStats.isPlayerATurn) {
                         equipped = aPiece;
                         targetPebble = boardS.GetPebbleByPiece( equipped);
                         boardS.disableParticlesOf(availableMovement);
                         animType = 0;
                         animationPlaying = true;
                         setwasHitFalse();
-                    }
+                    //}
                 }
             }
             else if ( movementMode == -1) {
@@ -185,7 +185,7 @@ public class UIBoard : MonoBehaviour
         
         
         // if (animationPlaying && player's turn)
-        if (animationPlaying && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
+        if (animationPlaying) { // && gameStats.gameTurn % (gameStats.totalTurns * 2) < gameStats.totalTurns) {
             //Debug.Log("k");
             if (animType == 0) { // we selected a piece, UpwardsJump the piece in place.
                 if (boardS.UpwardsJump(equipped, targetPebble.self.transform.position)) {
@@ -217,7 +217,7 @@ public class UIBoard : MonoBehaviour
                     targetPebble = null;
                     equipped = null;
                     boardS.disableParticlesOf(availableMovement);
-                    gameStats.isPlayerATurn = !gameStats.isPlayerATurn;
+                    //gameStats.isPlayerATurn = !gameStats.isPlayerATurn;
                     boardUpdate = true;
                             Debug.Log("c");
                     movementMode = 3;
