@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   self: {fileID: 69773922}
   movementStat: 3
-  startMovementStat: 20
+  startMovementStat: 2
   waitStatus: 0
   attackStat: 0
   pieceMoveSpeed: 0.5
@@ -7506,8 +7506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 1160342254}
-  movementStat: 20
-  startMovementStat: 20
+  movementStat: 3
+  startMovementStat: 2
   waitStatus: 0
   attackStat: 0
   pieceMoveSpeed: 0.5
